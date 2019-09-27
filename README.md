@@ -1,1 +1,1 @@
-"#futbin" 
+"#futbin: R package" 
