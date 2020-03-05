@@ -8,12 +8,11 @@
 #' "CL" (Champions League), "IF" (In-Form), "SIF" (Second In-Form), ...
 #' @param messages Optional. To show additional messages
 #' (webpage used and number of players found)
-#' @return A dataframe with all the players found searching for \code{name}
-#' and with version matching \code{version}
+#' @return A dataframe with all the players found searching for \code{name} and  \code{version}
 #' @examples
 #' futbin_search("Lionel Messi")
 #' futbin_search("Lionel Messi", version = "Normal")
-#' futbin_search("Luka Modric", version = "IF")
+#' futbin_search("Luka Modric", version = "IF", messages = TRUE)
 futbin_search <- function(name = "", version = NULL, messages = F) {
   if (length(name) == 1) {
 

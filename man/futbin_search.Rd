@@ -17,8 +17,7 @@ it will report the 30 highest-rated players of the game.}
 (webpage used and number of players found)}
 }
 \value{
-A dataframe with all the players found searching for \code{name}
-and with version matching \code{version}
+A dataframe with all the players found searching for \code{name} and  \code{version}
 }
 \description{
 futbin_search searchs players in futbin.
@@ -26,5 +25,5 @@ futbin_search searchs players in futbin.
 \examples{
 futbin_search("Lionel Messi")
 futbin_search("Lionel Messi", version = "Normal")
-futbin_search("Luka Modric", version = "IF")
+futbin_search("Luka Modric", version = "IF", messages = TRUE)
 }

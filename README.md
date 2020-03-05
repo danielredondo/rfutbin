@@ -1,4 +1,6 @@
-# rfutbin
+---
+title: "rfutbin"
+---
 
 rfutbin: Search prices for FIFA Ultimate Team players in Futbin webpage
 
@@ -15,11 +17,13 @@ install_github("danielredondo/rfut")
 
 There's just one exported function in this package, `futbin_search`. It has the following parameters:
 
-- `name`
+- `name`. Optional. Name of the player. If leaved blank, it will report the 30 highest-rated players of the game.
 
-- `version`
+- `version`. Optional. Version of the card. It can be "Normal", "CL" (Champions League), "IF" (In-Form), "SIF" (Second In-Form), ...
 
-- `messages`
+- `messages`. Optional. To show additional messages (webpage used and number of players found).
+
+The output of the function is a dataframe with all the players found searching for `name` and  `version`.
 
 ## Examples
 
@@ -60,10 +64,12 @@ futbin_search("Lionel Messi", version = "Normal")
 7       6456        472          2297                M                 L  72 739000
 ```
 ```{r}
-futbin_search("Luka Modric", version = "IF")
+futbin_search("Luka Modric", version = "IF", messages = TRUE)
 ```
 
 ```{}
+[1] "Reading... https://www.futbin.com/20/players?page=1&search=luka+modric"
+[1] "Player(s) found: 1"
          name rating position ver ps_price skills weak_foot work_rate pac sho pas dri def phy hei
 2 Luka Modric     91       CM  IF     109K      4         4    H \\ H  75  78  91  91  73  67 172
   popularity base_stats in_game_stats work_rate_attack work_rate_defense wei     ps
