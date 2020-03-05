@@ -1,8 +1,3 @@
----
-pagetitle: "rfutbin"
----
-
-
 # rfutbin
 
 rfutbin: Search prices for FIFA Ultimate Team players in Futbin webpage
