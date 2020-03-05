@@ -1,6 +1,6 @@
-# rfut
+# rfutbin
 
-rfut: Search prices for FIFA Ultimate Team players in Futbin webpage
+rfutbin: Search prices for FIFA Ultimate Team players in Futbin webpage
 
 ### Installation
 
