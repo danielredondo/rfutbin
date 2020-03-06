@@ -13,9 +13,9 @@ Description: This package provides an R interface to Futbin,
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports: dplyr, rvest, magrittr, xml2
+Depends: R (>= 3.0)
+Imports: dplyr, rvest, magrittr, xml2, radarchart
 Suggests:
-  radarchart
 URL: https://github.com/danielredondo/rfut/
 BugReports: https://github.com/danielredondo/rfut/issues
 RoxygenNote: 7.0.2
