@@ -1,0 +1,59 @@
+---
+output:
+  github_document:
+    toc: true
+    toc_depth: 2
+---
+
+rfutbin
+=================
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+rfutbin: Search prices for FIFA Ultimate Team players in Futbin webpage
+
+## Installation
+
+This package is currently available only on GitHub. To install it, use the
+`devtools` package:
+
+```{r eval = FALSE}
+library(devtools)
+install_github("danielredondo/rfutbin")
+```
+
+## Usage
+
+There's just one exported function in this package, `futbin_search`. It has the following parameters:
+
+- `name`. Optional. Name of the player. If leaved blank, it will report the 30 highest-rated players of the game.
+
+- `version`. Optional. Version of the card. It can be "Normal", "CL" (Champions League), "IF" (In-Form), "SIF" (Second In-Form), ...
+
+- `messages`. Optional. To show additional messages (webpage used and number of players found).
+
+The output of the function is a dataframe with all the players found searching for `name` and  `version`.
+
+## Examples
+
+```{r}
+library(rfutbin)
+```
+
+```{r}
+futbin_search("Lionel Messi")
+```
+
+```{r}
+futbin_search("Lionel Messi", version = "Normal")
+```
+
+```{r}
+futbin_search("Luka Modric", version = "IF", messages = TRUE)
+```
