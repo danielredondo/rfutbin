@@ -2,16 +2,16 @@
 #'
 #' @export futbin_search
 #' @importFrom magrittr %>%
-#' @param name Optional. Name of the player. If leaved blank,
+#' @param name Optional. Vector with the names of the players. If not specified
 #' it will report the 30 highest-rated players of the game.
-#' @param version Optional. Version of the card. It can be "Normal",
+#' @param version Optional. Version of the cards. Some options are "Normal",
 #' "CL" (Champions League), "IF" (In-Form), "SIF" (Second In-Form), ...
 #' @param messages Optional. To show additional messages
-#' (webpage used and number of players found)
-#' @return A dataframe with all the players found searching for \code{name} and  \code{version}
+#' (webpage used and number of players found).
+#' @return A dataframe with all the players found searching for \code{name} and  \code{version}.
 #' @examples
 #' futbin_search(name = "Lionel Messi")
-#' futbin_search(name = "Lionel Messi", version = "Normal")
+#' futbin_search(name = c("Lionel Messi", "Griezmann"), version = "Normal")
 #' futbin_search(name = "Luka Modric", version = "IF", messages = TRUE)
 futbin_search <- function(name = "", version = NULL, messages = F) {
   if (length(name) == 1) {

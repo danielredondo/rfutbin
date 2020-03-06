@@ -32,9 +32,9 @@ install_github("danielredondo/rfutbin")
 
 There's just one exported function in this package, `futbin_search`. It has the following parameters:
 
-- `name`. Optional. Name of the player. If leaved blank, it will report the 30 highest-rated players of the game.
+- `name`. Optional. Optional. Vector with the names of the players. If not specified it will report the 30 highest-rated players of the game.
 
-- `version`. Optional. Version of the card. It can be "Normal", "CL" (Champions League), "IF" (In-Form), "SIF" (Second In-Form), ...
+- `version`. Optional. Version of the cards. It can be "Normal", "CL" (Champions League), "IF" (In-Form), "SIF" (Second In-Form), ...
 
 - `messages`. Optional. To show additional messages (webpage used and number of players found).
 
@@ -51,7 +51,7 @@ futbin_search(name = "Lionel Messi")
 ```
 
 ```{r}
-futbin_search(name = "Lionel Messi", version = "Normal")
+futbin_search(name = c("Lionel Messi", "Griezmann"), version = "Normal")
 ```
 
 ```{r}
