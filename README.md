@@ -42,7 +42,7 @@ library(rfutbin)
 ```
 
 ``` r
-futbin_search("Lionel Messi")
+futbin_search(name = "Lionel Messi")
 #>           name rating position             ver ps_price skills weak_foot
 #> 1 Lionel Messi     99       RW            TOTY    4.39M      4         4
 #> 2 Lionel Messi     96       RW         CL TOTT    1.89M      4         4
@@ -73,7 +73,7 @@ futbin_search("Lionel Messi")
 ```
 
 ``` r
-futbin_search("Lionel Messi", version = "Normal")
+futbin_search(name = "Lionel Messi", version = "Normal")
 #>           name rating position    ver ps_price skills weak_foot work_rate pac
 #> 7 Lionel Messi     94       RW Normal     720K      4         4    M \\ L  87
 #>   sho pas dri def phy hei popularity base_stats in_game_stats work_rate_attack
@@ -83,7 +83,7 @@ futbin_search("Lionel Messi", version = "Normal")
 ```
 
 ``` r
-futbin_search("Luka Modric", version = "IF", messages = TRUE)
+futbin_search(name = "Luka Modric", version = "IF", messages = TRUE)
 #> [1] "Reading... https://www.futbin.com/20/players?page=1&search=luka+modric"
 #> [1] "Player(s) found: 1"
 #>          name rating position ver ps_price skills weak_foot work_rate pac sho

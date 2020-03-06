@@ -23,7 +23,7 @@ A dataframe with all the players found searching for \code{name} and  \code{vers
 futbin_search searchs players in futbin.
 }
 \examples{
-futbin_search("Lionel Messi")
-futbin_search("Lionel Messi", version = "Normal")
-futbin_search("Luka Modric", version = "IF", messages = TRUE)
+futbin_search(name = "Lionel Messi")
+futbin_search(name = "Lionel Messi", version = "Normal")
+futbin_search(name = "Luka Modric", version = "IF", messages = TRUE)
 }
