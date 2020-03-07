@@ -1,6 +1,8 @@
 -   [rfutbin](#rfutbin)
     -   [Installation](#installation)
     -   [Usage](#usage)
+        -   [futbin\_search](#futbin_search)
+        -   [futbin\_plot](#futbin_plot)
     -   [Examples](#examples)
 
 rfutbin
