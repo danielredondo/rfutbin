@@ -1,8 +1,9 @@
 ---
 output:
-  github_document:
+  md_document:
+    variant: markdown_github
     toc: true
-    toc_depth: 3
+    toc_depth: 2
 ---
 
 rfutbin

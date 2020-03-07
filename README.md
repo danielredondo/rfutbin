@@ -1,10 +1,16 @@
+-   [rfutbin](#rfutbin)
+    -   [Installation](#installation)
+    -   [Usage](#usage)
+    -   [Examples](#examples)
 
-# rfutbin
+rfutbin
+=======
 
 rfutbin: Search prices for FIFA Ultimate Team players in
 [https://www.futbin.com](Futbin%20webpage).
 
-## Installation
+Installation
+------------
 
 This package is currently available only on GitHub. To install it, use
 the `devtools` package:
@@ -14,20 +20,21 @@ library(devtools)
 install_github("danielredondo/rfutbin")
 ```
 
-## Usage
+Usage
+-----
 
 ### futbin\_search
 
 `futbin_search` searchs players in futbin. It has the following
 parameters:
 
-  - `name`. Optional. Vector with the names of the players. If not
+-   `name`. Optional. Vector with the names of the players. If not
     specified it will report the 30 highest-rated players of the game.
 
-  - `version`. Optional. Version of the cards. It can be “Normal”, “CL”
+-   `version`. Optional. Version of the cards. It can be “Normal”, “CL”
     (Champions League), “IF” (In-Form), “SIF” (Second In-Form), …
 
-  - `messages`. Optional. To show additional messages (webpage used and
+-   `messages`. Optional. To show additional messages (webpage used and
     number of players found).
 
 The output of the function is a dataframe with all the players found
@@ -44,7 +51,8 @@ players. It has the following parameters:
 \#’ for goalkeepers: diving, handling, kicking, reflexes, speed and
 position. \#’ @return An interactive radar plot of the stats.
 
-## Examples
+Examples
+--------
 
 ``` r
 library(rfutbin)
@@ -53,45 +61,45 @@ library(rfutbin)
 ``` r
 futbin_search(name = "Lionel Messi")
 #>           name rating position             ver ps_price skills weak_foot
-#> 1 Lionel Messi     99       RW            TOTY    4.55M      4         4
-#> 2 Lionel Messi     96       RW         CL TOTT    2.01M      4         4
+#> 1 Lionel Messi     99       RW            TOTY    4.47M      4         4
+#> 2 Lionel Messi     96       RW         CL TOTT    2.02M      4         4
 #> 3 Lionel Messi     96       RW LaLiga POTM SBC    1.86M      4         4
-#> 4 Lionel Messi     96       CF   ShapeShifters    2.82M      4         4
-#> 5 Lionel Messi     95       RW              IF    1.19M      4         4
-#> 6 Lionel Messi     95       RW    TOTY Nominee    1.03M      4         4
-#> 7 Lionel Messi     94       RW          Normal     712K      4         4
-#> 8 Lionel Messi     94       RW              CL     720K      4         4
+#> 4 Lionel Messi     96       CF   ShapeShifters    2.85M      4         4
+#> 5 Lionel Messi     95       RW              IF    1.24M      4         4
+#> 6 Lionel Messi     95       RW    TOTY Nominee    1.05M      4         4
+#> 7 Lionel Messi     94       RW          Normal     716K      4         4
+#> 8 Lionel Messi     94       RW              CL     715K      4         4
 #>   work_rate pac sho pas dri def phy hei popularity base_stats in_game_stats
-#> 1    M \\ L  96  98  99  99  50  85 170       3667        527          2519
+#> 1    M \\ L  96  98  99  99  50  85 170       3668        527          2519
 #> 2    M \\ L  91  94  94  98  42  70 170       1491        489          2361
 #> 3    M \\ L  90  94  94  98  41  69 170      -2746        486          2350
-#> 4    H \\ L  91  95  94  98  41  71 170       1113        490          2365
-#> 5    M \\ L  89  93  93  97  40  68 170       4017        480          2320
+#> 4    H \\ L  91  95  94  98  41  71 170       1115        490          2365
+#> 5    M \\ L  89  93  93  97  40  68 170       4018        480          2320
 #> 6    M \\ L  88  93  93  97  40  67 170        294        478          2314
-#> 7    M \\ L  87  92  92  96  39  66 170       6530        472          2297
+#> 7    M \\ L  87  92  92  96  39  66 170       6536        472          2297
 #> 8    M \\ L  87  92  92  96  39  66 170        734        472          2297
 #>   work_rate_attack work_rate_defense wei      ps
-#> 1                M                 L  72 4550000
-#> 2                M                 L  72 2010000
+#> 1                M                 L  72 4470000
+#> 2                M                 L  72 2020000
 #> 3                M                 L  72 1860000
-#> 4                H                 L  72 2820000
-#> 5                M                 L  72 1190000
-#> 6                M                 L  72 1030000
-#> 7                M                 L  72  712000
-#> 8                M                 L  72  720000
+#> 4                H                 L  72 2850000
+#> 5                M                 L  72 1240000
+#> 6                M                 L  72 1050000
+#> 7                M                 L  72  716000
+#> 8                M                 L  72  715000
 ```
 
 ``` r
 futbin_search(name = c("Lionel Messi", "Griezmann"), version = "Normal")
 #>                name rating position    ver ps_price skills weak_foot work_rate
-#> 7      Lionel Messi     94       RW Normal     712K      4         4    M \\ L
-#> 3 Antoine Griezmann     89       CF Normal   37.25K      4         3    H \\ H
+#> 7      Lionel Messi     94       RW Normal     716K      4         4    M \\ L
+#> 3 Antoine Griezmann     89       CF Normal    37.5K      4         3    H \\ H
 #>   pac sho pas dri def phy hei popularity base_stats in_game_stats
-#> 7  87  92  92  96  39  66 170       6530        472          2297
+#> 7  87  92  92  96  39  66 170       6536        472          2297
 #> 3  81  86  84  89  57  72 176       5006        469          2326
 #>   work_rate_attack work_rate_defense wei     ps
-#> 7                M                 L  72 712000
-#> 3                H                 H  73  37250
+#> 7                M                 L  72 716000
+#> 3                H                 H  73  37500
 ```
 
 ``` r
@@ -111,14 +119,13 @@ defenders <- futbin_search(name = c("Militao", "Gerard Pique"), version = "Norma
 futbin_plot(defenders)
 ```
 
-![<https://i.imgur.com/0zw5zKG.png>](https://i.imgur.com/0zw5zKG.png)
-(Please note that this is a static version. Real plots are
-interactive.)
+![<a href="https://i.imgur.com/0zw5zKG.png" class="uri">https://i.imgur.com/0zw5zKG.png</a>](https://i.imgur.com/0zw5zKG.png)
+(Please note that this is a static version. Real plots are interactive.)
 
 ``` r
 some_goalkeepers <- futbin_search(name = c("De Gea", "Kepa", "Hugo Lloris"), version = "Normal")
 futbin_plot(some_goalkeepers, gk = TRUE)
 ```
 
-![<https://i.imgur.com/jmEMRYC.png>](https://i.imgur.com/jmEMRYC.png)
+![<a href="https://i.imgur.com/jmEMRYC.png" class="uri">https://i.imgur.com/jmEMRYC.png</a>](https://i.imgur.com/jmEMRYC.png)
 (Please note that this is a static version. Real plots are interactive.)
