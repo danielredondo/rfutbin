@@ -30,13 +30,6 @@ futbin_plot <- function(df, gk = FALSE){
       scores = df_radar,
       polyAlpha = 0,
       maxScale = 99,
-      scaleLineWidth=20
+      scaleLineWidth = 20
     )
 }
-
-#barcelona_defenders <- c("Jordi Alba", "Pique", "Lenglet", "Sergi Roberto")
-#futbin_plot(futbin_search(barcelona_defenders, version = "Normal"))
-#
-#goalkeepers_chelsea <- c("Kepa", "Willy Caballero")
-#futbin_plot(futbin_search(goalkeepers_chelsea, version = "Normal"), gk = T)
-

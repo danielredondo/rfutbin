@@ -2,7 +2,7 @@
 output:
   github_document:
     toc: true
-    toc_depth: 2
+    toc_depth: 3
 ---
 
 rfutbin
@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-rfutbin: Search prices for FIFA Ultimate Team players in Futbin webpage
+rfutbin: Search prices for FIFA Ultimate Team players in [https://www.futbin.com](Futbin webpage).
 
 ## Installation
 
@@ -30,15 +30,28 @@ install_github("danielredondo/rfutbin")
 
 ## Usage
 
-There's just one exported function in this package, `futbin_search`. It has the following parameters:
+### futbin_search 
 
-- `name`. Optional. Optional. Vector with the names of the players. If not specified it will report the 30 highest-rated players of the game.
+`futbin_search` searchs players in futbin. It has the following parameters:
+
+- `name`. Optional. Vector with the names of the players. If not specified it will report the 30 highest-rated players of the game.
 
 - `version`. Optional. Version of the cards. It can be "Normal", "CL" (Champions League), "IF" (In-Form), "SIF" (Second In-Form), ...
 
 - `messages`. Optional. To show additional messages (webpage used and number of players found).
 
 The output of the function is a dataframe with all the players found searching for `name` and  `version`.
+
+
+### futbin_plot 
+
+`futbin_search` makes an interactive radar plot of the stats of the players. It has the following parameters:
+
+#' @param df dataframe generated with columns `pac`, `sho`, `pas`, `dri`, `def`, `phy`.
+#' This dataframe can be obtained from function \code{\link{futbin_search}}.
+#' @param gk Optional. If `TRUE`, the labels of the plot are the stats
+#' for goalkeepers: diving, handling, kicking, reflexes, speed and position.
+#' @return An interactive radar plot of the stats.
 
 ## Examples
 
@@ -57,3 +70,19 @@ futbin_search(name = c("Lionel Messi", "Griezmann"), version = "Normal")
 ```{r}
 futbin_search(name = "Luka Modric", version = "IF", messages = TRUE)
 ```
+
+```{r, eval = FALSE}
+defenders <- futbin_search(name = c("Militao", "Gerard Pique"), version = "Normal")
+futbin_plot(defenders)
+```
+
+![https://i.imgur.com/0zw5zKG.png](https://i.imgur.com/0zw5zKG.png)
+(Please note that this is a static version. Real plots are interactive.)
+
+```{r, eval = FALSE}
+some_goalkeepers <- futbin_search(name = c("De Gea", "Kepa", "Hugo Lloris"), version = "Normal")
+futbin_plot(some_goalkeepers, gk = TRUE)
+```
+
+![https://i.imgur.com/jmEMRYC.png](https://i.imgur.com/jmEMRYC.png)
+(Please note that this is a static version. Real plots are interactive.)
