@@ -5,7 +5,7 @@ output:
     toc: true
     toc_depth: 3
 ---
-
+ 
 rfutbin
 =================
 
@@ -46,13 +46,12 @@ The output of the function is a dataframe with all the players found searching f
 
 ### futbin_plot 
 
-`futbin_search` makes an interactive radar plot of the stats of the players. It has the following parameters:
+`futbin_plot` makes an interactive radar plot of the stats of the players. It has the following parameters:
 
-#' @param df dataframe generated with columns `pac`, `sho`, `pas`, `dri`, `def`, `phy`.
-#' This dataframe can be obtained from function \code{\link{futbin_search}}.
-#' @param gk Optional. If `TRUE`, the labels of the plot are the stats
-#' for goalkeepers: diving, handling, kicking, reflexes, speed and position.
-#' @return An interactive radar plot of the stats.
+- `df` dataframe generated with columns `pac`, `sho`, `pas`, `dri`, `def`, `phy`. This dataframe can be obtained from function `futbin_search`.
+- `gk` Optional. If `TRUE`, the labels of the plot are the stats for goalkeepers: diving, handling, kicking, reflexes, speed and position.
+
+The output of the function is an interactive radar plot of the stats.
 
 ## Examples
 
