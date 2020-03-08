@@ -33,8 +33,9 @@ futbin_search <- function(name = "", version = NULL, messages = F) {
 
     # Table names
     colnames(tabla) <- c(
-      "name", "rating", "position", "version", "ps_price", "skills", "weak_foot", "work_rate", "pac",
-      "sho", "pas", "dri", "def", "phy", "hei", "popularity", "base_stats", "in_game_stats"
+      "name", "rating", "position", "version", "ps_price", "skills", "weak_foot", "work_rate",
+      "pac", "sho", "pas", "dri", "def", "phy",
+      "hei", "popularity", "base_stats", "in_game_stats"
     )
 
     # Work rates (attack and defense)
