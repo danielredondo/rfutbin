@@ -2,7 +2,8 @@
 #'
 #' @export futbin_plot
 #' @importFrom magrittr %>%
-#' @param df dataframe generated with columns `pac`, `sho`, `pas`, `dri`, `def`, `phy`.
+#' @param df dataframe generated with columns `pace`, `sho`, `pas`, `dri`, `def`, `phy`,
+#' `name`, `rating` and `version`.
 #' This dataframe can be obtained from function \code{\link{futbin_search}}.
 #' @param gk Optional. If `TRUE`, the labels of the plot are the stats
 #' for goalkeepers: diving, handling, kicking, reflexes, speed and position.
@@ -24,7 +25,7 @@ futbin_plot <- function(df, gk = FALSE){
 
   if(gk == TRUE) df_radar$stats <- c("Diving", "Handling", "Kicking", "Reflexes", "Speed", "Positioning")
 
-  colnames(df_radar) <- c("stats", paste0(df$name, " (", df$rat, ", ", df$ver, ")"))
+  colnames(df_radar) <- c("stats", paste0(df$name, " (", df$rating, ", ", df$version, ")"))
 
     radarchart::chartJSRadar(
       scores = df_radar,

@@ -33,7 +33,7 @@ futbin_search <- function(name = "", version = NULL, messages = F) {
 
     # Table names
     colnames(tabla) <- c(
-      "name", "rating", "position", "ver", "ps_price", "skills", "weak_foot", "work_rate", "pac",
+      "name", "rating", "position", "version", "ps_price", "skills", "weak_foot", "work_rate", "pac",
       "sho", "pas", "dri", "def", "phy", "hei", "popularity", "base_stats", "in_game_stats"
     )
 
@@ -57,7 +57,7 @@ futbin_search <- function(name = "", version = NULL, messages = F) {
     }
 
     # Filter version of the player
-    if (is.null(version) == FALSE) tabla <- subset(tabla, tabla$ver == version)
+    if (is.null(version) == FALSE) tabla <- subset(tabla, tabla$version == version)
 
     if (messages == T) print(paste0("Reading... ", url))
     if (messages == T) print(paste0("Player(s) found: ", nrow(tabla)))
@@ -65,9 +65,9 @@ futbin_search <- function(name = "", version = NULL, messages = F) {
     return(tabla)
   } else {
     # Recursive search
-    aux <- name[1]
-    name <- name[-1]
-    return(rbind(futbin_search(aux, version, messages), futbin_search(name, version, messages)))
+    first.name <- name[1]
+    other.names <- name[-1]
+    return(rbind(futbin_search(first.name, version, messages), futbin_search(other.names, version, messages)))
   }
 }
 

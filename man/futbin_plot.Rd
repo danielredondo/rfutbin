@@ -7,7 +7,8 @@
 futbin_plot(df, gk = FALSE)
 }
 \arguments{
-\item{df}{dataframe generated with columns `pac`, `sho`, `pas`, `dri`, `def`, `phy`.
+\item{df}{dataframe generated with columns `pac`, `sho`, `pas`, `dri`, `def`, `phy`,
+`name`, `rat` and `ver`.
 This dataframe can be obtained from function \code{\link{futbin_search}}.}
 
 \item{gk}{Optional. If `TRUE`, the labels of the plot are the stats
