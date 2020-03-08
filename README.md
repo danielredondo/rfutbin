@@ -25,6 +25,8 @@ install_github("danielredondo/rfutbin")
 Usage
 -----
 
+In `rfutbin` there are two functions: `futbin_search` and `futbin_plot`.
+
 ### futbin\_search
 
 `futbin_search` searchs players in futbin. It has the following

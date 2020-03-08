@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-rfutbin: Search prices for FIFA Ultimate Team players in [https://www.futbin.com](Futbin webpage).
+rfutbin: Search prices for FIFA Ultimate Team players in [Futbin webpage](https://www.futbin.com).
 
 ## Installation
 
