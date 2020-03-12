@@ -2,4 +2,5 @@
 
 export(futbin_plot)
 export(futbin_search)
+importFrom(dplyr,"%>%")
 importFrom(magrittr,"%>%")
