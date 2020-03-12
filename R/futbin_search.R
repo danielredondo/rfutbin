@@ -6,8 +6,7 @@
 #' it will report the 30 highest-rated players of the game.
 #' @param version Optional. Version of the cards. Some options are "Normal",
 #' "CL" (Champions League), "IF" (In-Form), "SIF" (Second In-Form), ...
-#' @param messages Optional. To show additional messages
-#' (webpage used and number of players found).
+#' @param messages Optional. To show additional messages about webpage used and number of players found.
 #' @return A dataframe with all the players found searching for \code{name} and  \code{version}.
 #' @examples
 #' futbin_search(name = "Lionel Messi")

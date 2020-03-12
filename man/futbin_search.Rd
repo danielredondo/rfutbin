@@ -13,8 +13,7 @@ it will report the 30 highest-rated players of the game.}
 \item{version}{Optional. Version of the cards. Some options are "Normal",
 "CL" (Champions League), "IF" (In-Form), "SIF" (Second In-Form), ...}
 
-\item{messages}{Optional. To show additional messages
-(webpage used and number of players found).}
+\item{messages}{Optional. To show additional messages about webpage used and number of players found.}
 }
 \value{
 A dataframe with all the players found searching for \code{name} and  \code{version}.
