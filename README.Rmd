@@ -35,11 +35,11 @@ install_github("danielredondo/rfutbin")
 
 `futbin_search` searchs players in futbin. It has the following parameters:
 
-- `name`. Optional. Vector with the names of the players. If not specified it will report the 30 highest-rated players of the game.
+- `name`. Optional. Vector with the names of the players. If not specified, it will report the 30 highest-rated players of the game.
 
-- `version`. Optional. Version of the cards. It can be "Normal", "CL" (Champions League), "IF" (In-Form), "SIF" (Second In-Form), ...
+- `version`. Optional. Version of the cards. Some options are "Rare", "Non-Rare", "IF" (In-Form), "SIF" (Second In-Form), ...
 
-- `messages`. Optional. To show additional messages (webpage used and number of players found).
+- `verbose`. Optional. To show additional messages (webpage scraped and number of players found).
 
 The output of the function is a dataframe with all the players found searching for `name` and  `version`.
 
@@ -76,7 +76,7 @@ futbin_search(name = c("Lionel Messi", "Cristiano Ronaldo"))
 #### Search for a specific version of two or more players
 
 ```{r}
-futbin_search(name = c("Lionel Messi", "Griezmann"), version = "Normal")
+futbin_search(name = c("Lionel Messi", "Griezmann"), version = "Rare")
 ```
 
 #### Search for an In-Form card of a player, showing verbose
@@ -88,7 +88,7 @@ futbin_search(name = "Grealish", version = "IF", verbose = TRUE)
 #### Radar plot comparing Militao and Piqué
 
 ```{r, eval = FALSE}
-defenders <- futbin_search(name = c("Militao", "Gerard Pique"), version = "Normal")
+defenders <- futbin_search(name = c("Militao", "Gerard Pique"), version = "Rare")
 futbin_plot(defenders)
 ```
 
@@ -98,7 +98,7 @@ futbin_plot(defenders)
 #### Radar plot comparing goalkeepers:
 
 ```{r, eval = FALSE}
-some_goalkeepers <- futbin_search(name = c("De Gea", "Kepa", "Hugo Lloris"), version = "Normal")
+some_goalkeepers <- futbin_search(name = c("De Gea", "Kepa", "Hugo Lloris"), version = "Rare")
 futbin_plot(some_goalkeepers, gk = TRUE)
 ```
 

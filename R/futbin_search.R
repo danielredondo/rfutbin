@@ -4,8 +4,8 @@
 #' @importFrom dplyr %>%
 #' @param name Optional. Vector with the names of the players. If not specified
 #' it will report the 30 highest-rated players of the game.
-#' @param version_selected Optional. Version of the cards. Some options are "Normal",
-#' "CL" (Champions League), "IF" (In-Form), "SIF" (Second In-Form), ...
+#' @param version Optional. Version of the cards. Some options are "Rare",
+#' "Non-Rare", "IF" (In-Form), "SIF" (Second In-Form), ...
 #' @param verbose Optional. To show additional verbose about webpage used and number of players found.
 #' @return A dataframe with all the players found searching for \code{name} and  \code{version}.
 #' @examples
@@ -14,11 +14,11 @@
 #' # Search for more than one player
 #' futbin_search(name = c("Lionel Messi", "Cristiano Ronaldo"))
 #' # Search for a specific version of two or more players
-#' futbin_search(name = c("Lionel Messi", "Griezmann"), version_selected = "Normal")
+#' futbin_search(name = c("Lionel Messi", "Griezmann"), version = "Rare")
 #' # Search for an In-Form card of a player, showing verbose
-#' futbin_search(name = "Grealish", version_selected = "IF", verbose = TRUE)
+#' futbin_search(name = "Grealish", version = "IF", verbose = TRUE)
 
-futbin_search <- function(name = "", version_selected = NULL, verbose = F) {
+futbin_search <- function(name = "", version = NULL, verbose = F) {
   if (length(name) == 1) {
 
     # Name transformation
@@ -65,7 +65,10 @@ futbin_search <- function(name = "", version_selected = NULL, verbose = F) {
     }
 
     # Filter version of the player
-    if (is.null(version_selected) == FALSE) tabla <- subset(tabla, version == version_selected)
+    if (is.null(version) == FALSE){
+      version_selected <- version
+      tabla <- subset(tabla, version == version_selected)
+    }
 
     if (verbose == T) print(paste0("Reading... ", url))
     if (verbose == T) print(paste0("Player(s) found: ", nrow(tabla)))
@@ -75,7 +78,7 @@ futbin_search <- function(name = "", version_selected = NULL, verbose = F) {
     # Recursive search
     first.name <- name[1]
     other.names <- name[-1]
-    return(rbind(futbin_search(first.name, version_selected, verbose), futbin_search(other.names, version_selected, verbose)))
+    return(rbind(futbin_search(first.name, version, verbose), futbin_search(other.names, version, verbose)))
   }
 }
 

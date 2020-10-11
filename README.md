@@ -31,14 +31,14 @@ parameters:
 -   `name`. Optional. Vector with the names of the players. If not
     specified it will report the 30 highest-rated players of the game.
 
--   `version`. Optional. Version of the cards. It can be “Normal”, “CL”
-    (Champions League), “IF” (In-Form), “SIF” (Second In-Form), …
+-   `version_selected`. Optional. Version of the cards. It can be
+    “Rare”, “IF” (In-Form), “SIF” (Second In-Form), …
 
 -   `messages`. Optional. To show additional messages (webpage used and
     number of players found).
 
 The output of the function is a dataframe with all the players found
-searching for `name` and `version`.
+searching for `name` and `version_selected`.
 
 ### futbin\_plot
 
@@ -68,9 +68,9 @@ library(rfutbin)
 ``` r
 futbin_search(name = "Lionel Messi")
 #>           name rating position version  price skills weak_foot pac sho pas dri
-#> 1 Lionel Messi     93       RW    Rare 835000      4         4  85  92  91  95
+#> 1 Lionel Messi     93       RW    Rare 830000      4         4  85  92  91  95
 #>   def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
-#> 1  38  65 170        574        466          2273         M          L  72
+#> 1  38  65 170        573        466          2273         M          L  72
 ```
 
 #### Search for more than one player
@@ -78,11 +78,11 @@ futbin_search(name = "Lionel Messi")
 ``` r
 futbin_search(name = c("Lionel Messi", "Cristiano Ronaldo"))
 #>                name rating position version   price skills weak_foot pac sho
-#> 1      Lionel Messi     93       RW    Rare  835000      4         4  85  92
+#> 1      Lionel Messi     93       RW    Rare  830000      4         4  85  92
 #> 2 Cristiano Ronaldo     92       ST    Rare 1690000      5         4  89  93
 #>   pas dri def phy hei popularity base_stats in_game_stats wr_attack wr_defense
-#> 1  91  95  38  65 170        574        466          2273         M          L
-#> 2  81  89  35  77 187       1056        464          2258         H          L
+#> 1  91  95  38  65 170        573        466          2273         M          L
+#> 2  81  89  35  77 187       1057        464          2258         H          L
 #>   wei
 #> 1  72
 #> 2  83
@@ -91,33 +91,31 @@ futbin_search(name = c("Lionel Messi", "Cristiano Ronaldo"))
 #### Search for a specific version of two or more players
 
 ``` r
-futbin_search(name = c("Lionel Messi", "Griezmann"), version = "Normal")
+futbin_search(name = c("Lionel Messi", "Griezmann"), version_selected = "Rare")
 #>                name rating position version  price skills weak_foot pac sho pas
-#> 1      Lionel Messi     93       RW    Rare 835000      4         4  85  92  91
+#> 1      Lionel Messi     93       RW    Rare 830000      4         4  85  92  91
 #> 2 Antoine Griezmann     87       ST    Rare 108000      4         3  79  85  84
 #>   dri def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
-#> 1  95  38  65 170        574        466          2273         M          L  72
-#> 2  88  57  72 176        289        465          2314         M          M  73
+#> 1  95  38  65 170        573        466          2273         M          L  72
+#> 2  88  57  72 176        290        465          2314         M          M  73
 ```
 
 #### Search for an In-Form card of a player, showing verbose
 
 ``` r
-futbin_search(name = "Grealish", version = "IF", verbose = TRUE)
+futbin_search(name = "Grealish", version_selected = "IF", verbose = TRUE)
 #> [1] "Reading... https://www.futbin.com/21/players?page=1&search=grealish"
-#> [1] "Player(s) found: 2"
+#> [1] "Player(s) found: 1"
 #>            name rating position version price skills weak_foot pac sho pas dri
 #> 1 Jack Grealish     83       LM      IF 11250      4         3  80  77  84  87
-#> 2 Jack Grealish     80       LW    Rare  3600      4         3  76  74  80  84
 #>   def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
 #> 1  49  64 180        249        441          2066         M          M  68
-#> 2  46  61 180        128        421          1989         M          M  68
 ```
 
 #### Radar plot comparing Militao and Piqué
 
 ``` r
-defenders <- futbin_search(name = c("Militao", "Gerard Pique"), version = "Normal")
+defenders <- futbin_search(name = c("Militao", "Gerard Pique"), version_selected = "Rare")
 futbin_plot(defenders)
 ```
 
@@ -127,7 +125,7 @@ futbin_plot(defenders)
 #### Radar plot comparing goalkeepers:
 
 ``` r
-some_goalkeepers <- futbin_search(name = c("De Gea", "Kepa", "Hugo Lloris"), version = "Normal")
+some_goalkeepers <- futbin_search(name = c("De Gea", "Kepa", "Hugo Lloris"), version_selected = "Rare")
 futbin_plot(some_goalkeepers, gk = TRUE)
 ```
 
