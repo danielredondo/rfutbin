@@ -1,6 +1,6 @@
 -   [rfutbin](#rfutbin)
     -   [Installation](#installation)
-    -   [Usage](#usage)
+    -   [Functions](#functions)
     -   [Examples](#examples)
 
 rfutbin
@@ -20,8 +20,8 @@ library(devtools)
 install_github("danielredondo/rfutbin")
 ```
 
-Usage
------
+Functions
+---------
 
 ### futbin\_search
 
@@ -97,7 +97,7 @@ futbin_search(name = c("Lionel Messi", "Griezmann"), version = "Normal")
 #> 2 Antoine Griezmann     87       ST    Rare 108000      4         3  79  85  84
 #>   dri def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
 #> 1  95  38  65 170        574        466          2273         M          L  72
-#> 2  88  57  72 176        288        465          2314         M          M  73
+#> 2  88  57  72 176        289        465          2314         M          M  73
 ```
 
 #### Search for an In-Form card of a player, showing verbose
