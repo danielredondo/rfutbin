@@ -1,21 +1,7 @@
 -   [rfutbin](#rfutbin)
     -   [Installation](#installation)
     -   [Usage](#usage)
-        -   [futbin\_search](#futbin_search)
-        -   [futbin\_plot](#futbin_plot)
     -   [Examples](#examples)
-        -   [Load package](#load-package)
-        -   [Search for a player](#search-for-a-player)
-        -   [Search for more than one
-            player](#search-for-more-than-one-player)
-        -   [Search for a specific version of two or more
-            players](#search-for-a-specific-version-of-two-or-more-players)
-        -   [Search for an In-Form card of a player, showing
-            verbose](#search-for-an-in-form-card-of-a-player-showing-verbose)
-        -   [Radar plot comparing Militao and
-            Piqué](#radar-plot-comparing-militao-and-piqué)
-        -   [Radar plot comparing
-            goalkeepers:](#radar-plot-comparing-goalkeepers)
 
 rfutbin
 =======
@@ -96,7 +82,7 @@ futbin_search(name = c("Lionel Messi", "Cristiano Ronaldo"))
 #> 2 Cristiano Ronaldo     92       ST    Rare 1690000      5         4  89  93
 #>   pas dri def phy hei popularity base_stats in_game_stats wr_attack wr_defense
 #> 1  91  95  38  65 170        574        466          2273         M          L
-#> 2  81  89  35  77 187       1054        464          2258         H          L
+#> 2  81  89  35  77 187       1056        464          2258         H          L
 #>   wei
 #> 1  72
 #> 2  83
