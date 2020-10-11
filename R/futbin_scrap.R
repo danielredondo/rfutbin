@@ -8,7 +8,10 @@
 #' @param messages Optional. To show additional messages about webpage used and number of players found.
 #' @return A dataframe with all the players found searching for \code{name} and  \code{version}.
 #' @examples
+#' # Aston Villa players
 #' futbin_scrap(url = "https://www.futbin.com/players?page=1&club=2")
+#'
+#' # Spanish centre-backs from La Liga
 #' futbin_scrap(url = "https://www.futbin.com/players?page=1&nation=45&league=53&position=CB")
 
 futbin_scrap <- function(url, sleep_time = 5, messages = TRUE) {
@@ -31,14 +34,14 @@ futbin_scrap <- function(url, sleep_time = 5, messages = TRUE) {
     if (i == 1) {
       tabla <- xml2::read_html(url_to_scrap) %>%
         rvest::html_nodes(xpath = "//table") %>%
-        magrittr::extract(3) %>%
+        magrittr::extract(1) %>%
         rvest::html_table() %>%
         magrittr::extract2(1)
     } else {
       Sys.sleep(sleep_time)
       tabla.i <- xml2::read_html(url_to_scrap) %>%
         rvest::html_nodes(xpath = "//table") %>%
-        magrittr::extract(3) %>%
+        magrittr::extract(1) %>%
         rvest::html_table() %>%
         magrittr::extract2(1)
       if(tabla.i[1, 1] != "No Results") tabla <- rbind(tabla, tabla.i)

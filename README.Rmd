@@ -55,21 +55,37 @@ The output of the function is an interactive radar plot of the stats.
 
 ## Examples
 
+#### Load package
+
 ```{r}
 library(rfutbin)
 ```
+
+#### Search for a player
 
 ```{r}
 futbin_search(name = "Lionel Messi")
 ```
 
+#### Search for more than one player
+
+```{r}
+futbin_search(name = c("Lionel Messi", "Cristiano Ronaldo"))
+```
+
+#### Search for a specific version of two or more players
+
 ```{r}
 futbin_search(name = c("Lionel Messi", "Griezmann"), version = "Normal")
 ```
 
+#### Search for an In-Form card of a player, showing verbose
+
 ```{r}
-futbin_search(name = "Luka Modric", version = "IF", messages = TRUE)
+futbin_search(name = "Grealish", version = "IF", verbose = TRUE)
 ```
+
+#### Radar plot comparing Militao and Piqué
 
 ```{r, eval = FALSE}
 defenders <- futbin_search(name = c("Militao", "Gerard Pique"), version = "Normal")
@@ -78,6 +94,8 @@ futbin_plot(defenders)
 
 ![https://i.imgur.com/0zw5zKG.png](https://i.imgur.com/0zw5zKG.png)
 (Please note that this is a static version. Real plots are interactive.)
+
+#### Radar plot comparing goalkeepers:
 
 ```{r, eval = FALSE}
 some_goalkeepers <- futbin_search(name = c("De Gea", "Kepa", "Hugo Lloris"), version = "Normal")

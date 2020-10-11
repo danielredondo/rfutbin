@@ -6,14 +6,19 @@
 #' it will report the 30 highest-rated players of the game.
 #' @param version Optional. Version of the cards. Some options are "Normal",
 #' "CL" (Champions League), "IF" (In-Form), "SIF" (Second In-Form), ...
-#' @param messages Optional. To show additional messages about webpage used and number of players found.
+#' @param verbose Optional. To show additional verbose about webpage used and number of players found.
 #' @return A dataframe with all the players found searching for \code{name} and  \code{version}.
 #' @examples
+#' # Search for a player
 #' futbin_search(name = "Lionel Messi")
+#' # Search for more than one player
+#' futbin_search(name = c("Lionel Messi", "Cristiano Ronaldo"))
+#' # Search for a specific version of two or more players
 #' futbin_search(name = c("Lionel Messi", "Griezmann"), version = "Normal")
-#' futbin_search(name = "Luka Modric", version = "IF", messages = TRUE)
+#' # Search for an In-Form card of a player, showing verbose
+#' futbin_search(name = "Grealish", version = "IF", verbose = TRUE)
 
-futbin_search <- function(name = "", version = NULL, messages = F) {
+futbin_search <- function(name = "", version = NULL, verbose = F) {
   if (length(name) == 1) {
 
     # Name transformation
@@ -22,12 +27,12 @@ futbin_search <- function(name = "", version = NULL, messages = F) {
       gsub(pattern = " ", replacement = "+")
 
     # URL creation
-    url <- paste0("https://www.futbin.com/20/players?page=1&search=", name)
+    url <- paste0("https://www.futbin.com/21/players?page=1&search=", name)
 
     # Web scraping
     tabla <- xml2::read_html(url) %>%
       rvest::html_nodes(xpath = "//table") %>%
-      magrittr::extract(3) %>%
+      magrittr::extract(1) %>%
       rvest::html_table() %>%
       magrittr::extract2(1)
 
@@ -62,15 +67,15 @@ futbin_search <- function(name = "", version = NULL, messages = F) {
     # Filter version of the player
     if (is.null(version) == FALSE) tabla <- subset(tabla, tabla$version == version)
 
-    if (messages == T) print(paste0("Reading... ", url))
-    if (messages == T) print(paste0("Player(s) found: ", nrow(tabla)))
+    if (verbose == T) print(paste0("Reading... ", url))
+    if (verbose == T) print(paste0("Player(s) found: ", nrow(tabla)))
 
     return(tabla)
   } else {
     # Recursive search
     first.name <- name[1]
     other.names <- name[-1]
-    return(rbind(futbin_search(first.name, version, messages), futbin_search(other.names, version, messages)))
+    return(rbind(futbin_search(first.name, version, verbose), futbin_search(other.names, version, verbose)))
   }
 }
 

@@ -21,6 +21,9 @@ A dataframe with all the players found searching for \code{name} and  \code{vers
 futbin_scrap extract players in a URL in Futbin.
 }
 \examples{
+# Aston Villa players
 futbin_scrap(url = "https://www.futbin.com/players?page=1&club=2")
+
+# Spanish centre-backs from La Liga
 futbin_scrap(url = "https://www.futbin.com/players?page=1&nation=45&league=53&position=CB")
 }

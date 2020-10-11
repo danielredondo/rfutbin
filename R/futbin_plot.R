@@ -10,9 +10,11 @@
 #' @return An interactive radar plot of the stats.
 #' @examples
 #'
+#' # Plot comparing Militao and Piqué
 #' defenders <- futbin_search(name = c("Militao", "Gerard Pique"), version = "Normal")
 #' futbin_plot(defenders)
 #'
+#' # Plot comparing goalkeepers
 #' some_goalkeepers <- futbin_search(name = c("De Gea", "Kepa", "Hugo Lloris"), version = "Normal")
 #' futbin_plot(some_goalkeepers, gk = TRUE)
 #'
