@@ -1,7 +1,7 @@
 ---
 output:
   md_document:
-    variant: markdown_github
+    variant: gfm
     toc: true
     toc_depth: 2
 ---
@@ -66,33 +66,57 @@ library(rfutbin)
 ```{r}
 futbin_search(name = "Lionel Messi")
 ```
+```{r, echo = FALSE, results='hide'}
+Sys.sleep(3)
+```
 
 #### Search for more than one player
 
 ```{r}
 futbin_search(name = c("Lionel Messi", "Cristiano Ronaldo"))
 ```
-
-#### Search for a specific version of two or more players
-
-```{r}
-futbin_search(name = c("Lionel Messi", "Griezmann"), version = "Rare")
+```{r, echo = FALSE, results='hide'}
+Sys.sleep(3)
 ```
 
-#### Search for an In-Form card of a player, showing verbose
+#### Search for a specific version of a player
+
+```{r}
+# Lewandowski rare card
+futbin_search(name = "Lewandowski", version = "Rare")
+```
+```{r, echo = FALSE, results='hide'}
+Sys.sleep(3)
+```
+
+```{r}
+# Luis Suarez One to watch (OTW)
+futbin_search(name = "Luis Suarez", version = "OTW")
+```
+```{r, echo = FALSE, results='hide'}
+Sys.sleep(3)
+```
+
+#### Search for an In-Form (IF) card of a player, showing verbose
 
 ```{r}
 futbin_search(name = "Grealish", version = "IF", verbose = TRUE)
 ```
-
-#### Radar plot comparing Militao and Piqué
-
-```{r, eval = FALSE}
-defenders <- futbin_search(name = c("Militao", "Gerard Pique"), version = "Rare")
-futbin_plot(defenders)
+```{r, echo = FALSE, results='hide'}
+Sys.sleep(3)
 ```
 
-![https://i.imgur.com/0zw5zKG.png](https://i.imgur.com/0zw5zKG.png)
+#### Radar plot comparing Van Dijk and Messi
+
+```{r, eval = FALSE}
+defenders <- futbin_search(name = c("Van Dijk", "Lionel Messi"), version = "Rare")
+futbin_plot(defenders)
+```
+```{r, echo = FALSE, results='hide'}
+Sys.sleep(3)
+```
+
+![https://i.imgur.com/MP9cmAk.png](https://i.imgur.com/MP9cmAk.png)
 (Please note that this is a static version. Real plots are interactive.)
 
 #### Radar plot comparing goalkeepers:
@@ -102,5 +126,5 @@ some_goalkeepers <- futbin_search(name = c("De Gea", "Kepa", "Hugo Lloris"), ver
 futbin_plot(some_goalkeepers, gk = TRUE)
 ```
 
-![https://i.imgur.com/jmEMRYC.png](https://i.imgur.com/jmEMRYC.png)
+![https://i.imgur.com/zpD21wa.png](https://i.imgur.com/zpD21wa.png)
 (Please note that this is a static version. Real plots are interactive.)

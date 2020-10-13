@@ -10,7 +10,7 @@ futbin_scrap(url, sleep_time = 5, messages = TRUE)
 \item{url}{Futbin URL to web scrap. All pages of the URL will be automatically detected and downloaded.
 Futbin webpage (futbin.com/players) can be used to make customised filters, and then copy the URL here.}
 
-\item{sleep_time}{Time ellapsed between one download and the next. Please respect Futbin API.}
+\item{sleep_time}{Time (in seconds) ellapsed between one download and the next. Please respect Futbin API.}
 
 \item{messages}{Optional. To show additional messages about webpage used and number of players found.}
 }
@@ -21,9 +21,11 @@ A dataframe with all the players found searching for \code{name} and  \code{vers
 futbin_scrap extract players in a URL in Futbin.
 }
 \examples{
+\dontrun{
 # Aston Villa players
 futbin_scrap(url = "https://www.futbin.com/players?page=1&club=2")
 
 # Spanish centre-backs from La Liga
 futbin_scrap(url = "https://www.futbin.com/players?page=1&nation=45&league=53&position=CB")
+}
 }

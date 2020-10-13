@@ -9,14 +9,21 @@
 #' @param verbose Optional. To show additional verbose about webpage used and number of players found.
 #' @return A dataframe with all the players found searching for \code{name} and  \code{version}.
 #' @examples
+#'
+#' \dontrun{
 #' # Search for a player
 #' futbin_search(name = "Lionel Messi")
+#'
 #' # Search for more than one player
 #' futbin_search(name = c("Lionel Messi", "Cristiano Ronaldo"))
-#' # Search for a specific version of two or more players
-#' futbin_search(name = c("Lionel Messi", "Griezmann"), version = "Rare")
+#'
+#' # Search for a specific version of a player
+#' futbin_search(name = "Lewandowski", version = "Rare")
+#' futbin_search(name = "Luis Suarez", version = "OTW")
+#'
 #' # Search for an In-Form card of a player, showing verbose
 #' futbin_search(name = "Grealish", version = "IF", verbose = TRUE)
+#' }
 
 futbin_search <- function(name = "", version = NULL, verbose = F) {
   if (length(name) == 1) {

@@ -7,15 +7,15 @@ Authors@R: person("Daniel", "Redondo-Sanchez", email = "danielredondosanchez@hot
 Maintainer: Daniel Redondo Sánchez <danielredondosanchez@hotmail.com>
 Description: This package provides an R interface to Futbin,
     obtaining the live prices of FIFA Ultimate Team players, as well as
-    other interesting information (stats, version and positions, popularity, ...).
-    It also provides an interactive radar plots to easily visualize the main stats
-    of the players: pace, shooting, passing, dribbling, defense and physical.
+    other interesting information (stats, versions and positions, popularity, ...).
+    It also provides interactive radar plots to easily visualize the main stats
+    of the players.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 3.5)
 Imports: dplyr, rvest, magrittr, xml2, radarchart
 Suggests:
-URL: https://github.com/danielredondo/rfut/
-BugReports: https://github.com/danielredondo/rfut/issues
-RoxygenNote: 7.1.0
+URL: https://github.com/danielredondo/rfutbin/
+BugReports: https://github.com/danielredondo/rfutbin/issues
+RoxygenNote: 7.1.1

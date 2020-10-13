@@ -4,15 +4,17 @@
 #' @importFrom dplyr %>%
 #' @param url Futbin URL to web scrap. All pages of the URL will be automatically detected and downloaded.
 #' Futbin webpage (futbin.com/players) can be used to make customised filters, and then copy the URL here.
-#' @param sleep_time Time ellapsed between one download and the next. Please respect Futbin API.
+#' @param sleep_time Time (in seconds) ellapsed between one download and the next. Please respect Futbin API.
 #' @param messages Optional. To show additional messages about webpage used and number of players found.
 #' @return A dataframe with all the players found searching for \code{name} and  \code{version}.
 #' @examples
+#' \dontrun{
 #' # Aston Villa players
 #' futbin_scrap(url = "https://www.futbin.com/players?page=1&club=2")
 #'
 #' # Spanish centre-backs from La Liga
 #' futbin_scrap(url = "https://www.futbin.com/players?page=1&nation=45&league=53&position=CB")
+#' }
 
 futbin_scrap <- function(url, sleep_time = 5, messages = TRUE) {
 

@@ -4,14 +4,14 @@
 \alias{futbin_search}
 \title{futbin_search searchs players in futbin.}
 \usage{
-futbin_search(name = "", version_selected = NULL, verbose = F)
+futbin_search(name = "", version = NULL, verbose = F)
 }
 \arguments{
 \item{name}{Optional. Vector with the names of the players. If not specified
 it will report the 30 highest-rated players of the game.}
 
-\item{version_selected}{Optional. Version of the cards. Some options are "Normal",
-"CL" (Champions League), "IF" (In-Form), "SIF" (Second In-Form), ...}
+\item{version}{Optional. Version of the cards. Some options are "Rare",
+"Non-Rare", "IF" (In-Form), "SIF" (Second In-Form), ...}
 
 \item{verbose}{Optional. To show additional verbose about webpage used and number of players found.}
 }
@@ -22,12 +22,19 @@ A dataframe with all the players found searching for \code{name} and  \code{vers
 futbin_search searchs players in futbin.
 }
 \examples{
+
+\dontrun{
 # Search for a player
 futbin_search(name = "Lionel Messi")
+
 # Search for more than one player
 futbin_search(name = c("Lionel Messi", "Cristiano Ronaldo"))
-# Search for a specific version of two or more players
-futbin_search(name = c("Lionel Messi", "Griezmann"), version_selected = "Normal")
+
+# Search for a specific version of a player
+futbin_search(name = "Lewandowski", version = "Rare")
+futbin_search(name = "Luis Suarez", version = "OTW")
+
 # Search for an In-Form card of a player, showing verbose
-futbin_search(name = "Grealish", version_selected = "IF", verbose = TRUE)
+futbin_search(name = "Grealish", version = "IF", verbose = TRUE)
+}
 }
