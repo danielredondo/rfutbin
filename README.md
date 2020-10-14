@@ -89,7 +89,7 @@ futbin_search(name = "Lionel Messi")
 #>           name rating position version  price skills weak_foot pac sho pas dri
 #> 1 Lionel Messi     93       RW    Rare 849000      4         4  85  92  91  95
 #>   def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
-#> 1  38  65 170        694        466          2273         M          L  72
+#> 1  38  65 170        693        466          2273         M          L  72
 ```
 
 #### Search for more than one player
@@ -98,9 +98,9 @@ futbin_search(name = "Lionel Messi")
 futbin_search(name = c("Lionel Messi", "Cristiano Ronaldo"))
 #>                name rating position version   price skills weak_foot pac sho
 #> 1      Lionel Messi     93       RW    Rare  849000      4         4  85  92
-#> 2 Cristiano Ronaldo     92       ST    Rare 1800000      5         4  89  93
+#> 2 Cristiano Ronaldo     92       ST    Rare 1790000      5         4  89  93
 #>   pas dri def phy hei popularity base_stats in_game_stats wr_attack wr_defense
-#> 1  91  95  38  65 170        694        466          2273         M          L
+#> 1  91  95  38  65 170        693        466          2273         M          L
 #> 2  81  89  35  77 187       1222        464          2258         H          L
 #>   wei
 #> 1  72
@@ -113,7 +113,7 @@ futbin_search(name = c("Lionel Messi", "Cristiano Ronaldo"))
 # Lewandowski rare card
 futbin_search(name = "Lewandowski", version = "Rare")
 #>                 name rating position version  price skills weak_foot pac sho
-#> 2 Robert Lewandowski     91       ST    Rare 212000      4         4  78  91
+#> 2 Robert Lewandowski     91       ST    Rare 215000      4         4  78  91
 #>   pas dri def phy hei popularity base_stats in_game_stats wr_attack wr_defense
 #> 2  78  86  43  82 184        654        458          2232         H          M
 #>   wei
@@ -137,7 +137,7 @@ futbin_search(name = "Grealish", version = "IF", verbose = TRUE)
 #>            name rating position version price skills weak_foot pac sho pas dri
 #> 1 Jack Grealish     83       LM      IF 11750      4         3  80  77  84  87
 #>   def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
-#> 1  49  64 180        282        441          2066         M          M  68
+#> 1  49  64 180        283        441          2066         M          M  68
 ```
 
 #### Download all players from a Futbin webpage
@@ -159,10 +159,10 @@ head(aston_villa)
 #> 3     Jack Grealish     80       LW     Rare  3100      4         3  76  74  80
 #> 4        Tom Heaton     78       GK Non-Rare   500      1         3  78  77  74
 #> 5 Emiliano Martínez     78       GK Non-Rare   500      1         3  78  80  78
-#> 6      Ross Barkley     78       CM     Rare   800      4         5  70  74  78
+#> 6      Ross Barkley     78       CM     Rare   900      4         5  70  74  78
 #>   dri def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
-#> 1  87  49  64 180        282        441          2066         M          M  68
-#> 2  78  51  73 180        456        442          2068         H          H  70
+#> 1  87  49  64 180        283        441          2066         M          M  68
+#> 2  78  51  73 180        458        442          2068         H          H  70
 #> 3  84  46  61 180        132        421          1989         M          M  68
 #> 4  79  56  78 187          2        442           980         M          M  92
 #> 5  77  58  77 195         45        448          1064         M          M    
@@ -182,10 +182,10 @@ futbin_scrap(url = "https://www.futbin.com/21/players?page=1&league=19&nation=14
 #> 3 Ademola Lookman     74       RM     Rare  6000      3         4  82  72  66
 #> 4 Jude Bellingham     69       CM Non-Rare  1200      3         4  77  65  64
 #> 5    Reece Oxford     66       CB Non-Rare   850      2         3  67  33  52
-#> 6    Clinton Mola     66       LB Non-Rare   650      2         3  68  40  63
+#> 6    Clinton Mola     66       LB Non-Rare   500      2         3  68  40  63
 #> 7 Keanan Bennetts     63       LM     Rare  5700      2         4  75  59  58
 #>   dri def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
-#> 1  91  37  64 180       -458        430          2015         H          M  76
+#> 1  91  37  64 180       -460        430          2015         H          M  76
 #> 2  75  65  62 178         29        424          1978         H          M  71
 #> 3  80  27  60 174         10        387          1828         H          M  71
 #> 4  73  55  66 180         71        400          1837         H          M  72
@@ -202,7 +202,8 @@ futbin_plot(players)
 ```
 
 ![<https://i.imgur.com/MP9cmAk.png>](https://i.imgur.com/MP9cmAk.png)
-(Please note that this is a static version. Real plots are interactive.)
+*(Please note that this is a static version. Real plots are
+interactive.)*
 
 #### Radar plot comparing goalkeepers:
 
@@ -212,7 +213,8 @@ futbin_plot(some_goalkeepers, gk = TRUE)
 ```
 
 ![<https://i.imgur.com/zpD21wa.png>](https://i.imgur.com/zpD21wa.png)
-(Please note that this is a static version. Real plots are interactive.)
+*(Please note that this is a static version. Real plots are
+interactive.)*
 
 ## Citation
 

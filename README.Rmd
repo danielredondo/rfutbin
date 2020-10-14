@@ -144,7 +144,7 @@ players <- futbin_search(name = c("Van Dijk", "Lionel Messi"), version = "Rare")
 futbin_plot(players)
 ```
 ![https://i.imgur.com/MP9cmAk.png](https://i.imgur.com/MP9cmAk.png)
-(Please note that this is a static version. Real plots are interactive.)
+*(Please note that this is a static version. Real plots are interactive.)*
 
 #### Radar plot comparing goalkeepers:
 
@@ -154,8 +154,7 @@ futbin_plot(some_goalkeepers, gk = TRUE)
 ```
 
 ![https://i.imgur.com/zpD21wa.png](https://i.imgur.com/zpD21wa.png)
-(Please note that this is a static version. Real plots are interactive.)
-
+*(Please note that this is a static version. Real plots are interactive.)*
 
 ## Citation
 
