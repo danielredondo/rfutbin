@@ -2,30 +2,31 @@
 % Please edit documentation in R/futbin_scrap.R
 \name{futbin_scrap}
 \alias{futbin_scrap}
-\title{futbin_scrap extract players in a URL in Futbin.}
+\title{futbin_scrap extracts all players of a Futbin URL.}
 \usage{
-futbin_scrap(url, sleep_time = 5, messages = TRUE)
+futbin_scrap(url, sleep_time = 5, verbose = TRUE)
 }
 \arguments{
-\item{url}{Futbin URL to web scrap. All pages of the URL will be automatically detected and downloaded.
-Futbin webpage (futbin.com/players) can be used to make customised filters, and then copy the URL here.}
+\item{url}{Futbin URL to web scrap.
+Futbin webpage (https://www.futbin.com/players) can be used to make customised filters, and then copy the URL here.
+All the players found in the URL (and the next pages) will be automatically detected and downloaded.}
 
-\item{sleep_time}{Time (in seconds) ellapsed between one download and the next. Please respect Futbin API.}
+\item{sleep_time}{Time (in seconds) ellapsed between scraping one page and the next one. Please respect Futbin API.}
 
-\item{messages}{Optional. To show additional messages about webpage used and number of players found.}
+\item{verbose}{Optional. To show additional verbose about webpage used and number of players found.}
 }
 \value{
-A dataframe with all the players found searching for \code{name} and  \code{version}.
+A dataframe with all the players found at the URL.
 }
 \description{
-futbin_scrap extract players in a URL in Futbin.
+futbin_scrap extracts all players of a Futbin URL.
 }
 \examples{
 \dontrun{
-# Aston Villa players
+# Aston Villa players -> To get the URL, go to futbin.com/players and filter
 futbin_scrap(url = "https://www.futbin.com/players?page=1&club=2")
 
-# Spanish centre-backs from La Liga
+# Spanish centre-backs from La Liga -> To get the URL, go to futbin.com/players and filter
 futbin_scrap(url = "https://www.futbin.com/players?page=1&nation=45&league=53&position=CB")
 }
 }

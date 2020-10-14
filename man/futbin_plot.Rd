@@ -11,7 +11,7 @@ futbin_plot(df, gk = FALSE)
 `name`, `rating` and `version`.
 This dataframe can be obtained from function \code{\link{futbin_search}}.}
 
-\item{gk}{Optional. If `TRUE`, the labels of the plot are the stats
+\item{gk}{Optional. If `TRUE`, the labels of the plot are the main stats
 for goalkeepers: diving, handling, kicking, reflexes, speed and position.}
 }
 \value{

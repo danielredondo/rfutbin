@@ -5,7 +5,7 @@
 #' @param df dataframe generated with columns `pace`, `sho`, `pas`, `dri`, `def`, `phy`,
 #' `name`, `rating` and `version`.
 #' This dataframe can be obtained from function \code{\link{futbin_search}}.
-#' @param gk Optional. If `TRUE`, the labels of the plot are the stats
+#' @param gk Optional. If `TRUE`, the labels of the plot are the main stats
 #' for goalkeepers: diving, handling, kicking, reflexes, speed and position.
 #' @return An interactive radar plot of the stats.
 #' @examples
