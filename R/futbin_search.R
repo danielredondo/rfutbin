@@ -19,7 +19,7 @@
 #'
 #' # Search for a specific version of a player
 #' futbin_search(name = "Lewandowski", version = "Rare")
-#' futbin_search(name = "Luis Suarez", version = "OTW")
+#' futbin_search(name = "Luis Suárez", version = "OTW")
 #'
 #' # Search for an In-Form card of a player, showing verbose
 #' futbin_search(name = "Grealish", version = "IF", verbose = TRUE)
@@ -31,7 +31,11 @@ futbin_search <- function(name = "", version = NULL, verbose = F) {
     # Name transformation
     name <- name %>%
       tolower() %>%
-      gsub(pattern = " ", replacement = "+")
+      gsub(pattern = " ", replacement = "+") %>%
+      chartr(old = "\u00e1\u00e9\u00ed\u00f3\u00fa", new = "aeiou") %>%
+      chartr(old = "\u00e0\u00e8\u00ec\u00f2\u00f9", new = "aeiou") %>%
+      chartr(old = "\u00e2\u00ea\u00ee\u00f4\u00fb", new = "aeiou") %>%
+      chartr(old = "\u00f1", new = "n")
 
     # URL creation
     url <- paste0("https://www.futbin.com/21/players?page=1&search=", name)
