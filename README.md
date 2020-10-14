@@ -6,8 +6,8 @@
 
 # rfutbin
 
-rfutbin: Price and stats of FIFA Ultimate Team players in
-[Futbin](https://www.futbin.com).
+rfutbin: R package to get price and stats of FIFA Ultimate Team players
+in [Futbin](https://www.futbin.com).
 
 ## Installation
 
@@ -87,9 +87,9 @@ library(rfutbin)
 ``` r
 futbin_search(name = "Lionel Messi")
 #>           name rating position version  price skills weak_foot pac sho pas dri
-#> 1 Lionel Messi     93       RW    Rare 865000      4         4  85  92  91  95
+#> 1 Lionel Messi     93       RW    Rare 849000      4         4  85  92  91  95
 #>   def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
-#> 1  38  65 170        689        466          2273         M          L  72
+#> 1  38  65 170        694        466          2273         M          L  72
 ```
 
 #### Search for more than one player
@@ -97,11 +97,11 @@ futbin_search(name = "Lionel Messi")
 ``` r
 futbin_search(name = c("Lionel Messi", "Cristiano Ronaldo"))
 #>                name rating position version   price skills weak_foot pac sho
-#> 1      Lionel Messi     93       RW    Rare  865000      4         4  85  92
-#> 2 Cristiano Ronaldo     92       ST    Rare 1770000      5         4  89  93
+#> 1      Lionel Messi     93       RW    Rare  849000      4         4  85  92
+#> 2 Cristiano Ronaldo     92       ST    Rare 1800000      5         4  89  93
 #>   pas dri def phy hei popularity base_stats in_game_stats wr_attack wr_defense
-#> 1  91  95  38  65 170        689        466          2273         M          L
-#> 2  81  89  35  77 187       1219        464          2258         H          L
+#> 1  91  95  38  65 170        694        466          2273         M          L
+#> 2  81  89  35  77 187       1222        464          2258         H          L
 #>   wei
 #> 1  72
 #> 2  83
@@ -113,7 +113,7 @@ futbin_search(name = c("Lionel Messi", "Cristiano Ronaldo"))
 # Lewandowski rare card
 futbin_search(name = "Lewandowski", version = "Rare")
 #>                 name rating position version  price skills weak_foot pac sho
-#> 2 Robert Lewandowski     91       ST    Rare 214000      4         4  78  91
+#> 2 Robert Lewandowski     91       ST    Rare 212000      4         4  78  91
 #>   pas dri def phy hei popularity base_stats in_game_stats wr_attack wr_defense
 #> 2  78  86  43  82 184        654        458          2232         H          M
 #>   wei
@@ -126,7 +126,7 @@ futbin_search(name = "Luis Suarez", version = "OTW")
 #>          name rating position version  price skills weak_foot pac sho pas dri
 #> 2 Luis Suárez     88       ST     OTW 144000      3         4  72  91  84  84
 #>   def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
-#> 2  52  84 182        252        467          2272         H          M  86
+#> 2  52  84 182        253        467          2272         H          M  86
 ```
 
 ``` r
@@ -135,15 +135,15 @@ futbin_search(name = "Grealish", version = "IF", verbose = TRUE)
 #> [1] "Reading... https://www.futbin.com/21/players?page=1&search=grealish"
 #> [1] "Player(s) found: 1"
 #>            name rating position version price skills weak_foot pac sho pas dri
-#> 1 Jack Grealish     83       LM      IF 11500      4         3  80  77  84  87
+#> 1 Jack Grealish     83       LM      IF 11750      4         3  80  77  84  87
 #>   def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
 #> 1  49  64 180        282        441          2066         M          M  68
 ```
 
-#### Download all players from a team
+#### Download all players from a Futbin webpage
 
 ``` r
-# Aston Villa players -> To get the URL, go to futbin.com/players and filter
+# All Aston Villa players -> To get the URL, go to futbin.com/players and filter
 aston_villa <- futbin_scrap(url = "https://www.futbin.com/players?page=1&club=2")
 #> [1] "Reading... https://www.futbin.com/players?page=1&club=2"
 #> [1] "Player(s) found: 30"
@@ -151,37 +151,33 @@ aston_villa <- futbin_scrap(url = "https://www.futbin.com/players?page=1&club=2"
 #> [1] "Player(s) found: 36"
 #> [1] "Reading... https://www.futbin.com/players?page=3&club=2"
 #> [1] "Player(s) found: 36"
-# Let's see their names
-aston_villa$name
-#>  [1] "Jack Grealish"                "Ollie Watkins"               
-#>  [3] "Jack Grealish"                "Tom Heaton"                  
-#>  [5] "Emiliano Martínez"            "Ross Barkley"                
-#>  [7] "John McGinn"                  "Mbwana Ally Samatta"         
-#>  [9] "Matt Targett"                 "Ollie Watkins"               
-#> [11] "Frédéric Guilbert"            "Wesley"                      
-#> [13] "Bertrand Traoré"              "Conor Hourihane"             
-#> [15] "Tyrone Mings"                 "Anwar El Ghazi"              
-#> [17] "Lovre Kalinic"                "Marvelous Nakamba"           
-#> [19] "Mahmoud Hassan"               "Matty Cash"                  
-#> [21] "Douglas Luiz Soares de Paulo" "Björn Engels"                
-#> [23] "Ørjan Nyland"                 "Jota"                        
-#> [25] "Kortney Hause"                "Ahmed Elmohamady"            
-#> [27] "Ezri Konsa"                   "Neil Taylor"                 
-#> [29] "Jed Steer"                    "Henri Lansbury"              
-#> [31] "Scott Hogan"                  "Keinan Davis"                
-#> [33] "Indiana Vassilev"             "Jacob Ramsey"                
-#> [35] "Jack Clarke"                  "Callum Rowe"
+
+head(aston_villa)
+#>                name rating position  version price skills weak_foot pac sho pas
+#> 1     Jack Grealish     83       LM       IF 11750      4         3  80  77  84
+#> 2     Ollie Watkins     81       ST       IF 13250      3         4  88  79  73
+#> 3     Jack Grealish     80       LW     Rare  3100      4         3  76  74  80
+#> 4        Tom Heaton     78       GK Non-Rare   500      1         3  78  77  74
+#> 5 Emiliano Martínez     78       GK Non-Rare   500      1         3  78  80  78
+#> 6      Ross Barkley     78       CM     Rare   800      4         5  70  74  78
+#>   dri def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
+#> 1  87  49  64 180        282        441          2066         M          M  68
+#> 2  78  51  73 180        456        442          2068         H          H  70
+#> 3  84  46  61 180        132        421          1989         M          M  68
+#> 4  79  56  78 187          2        442           980         M          M  92
+#> 5  77  58  77 195         45        448          1064         M          M    
+#> 6  80  57  73 186         37        432          2040         M          M  87
 ```
 
 ``` r
-# English players in Bundesliga -> To get the URL, go to futbin.com/players and filter
+# All English players in Bundesliga -> To get the URL, go to futbin.com/players and filter
 futbin_scrap(url = "https://www.futbin.com/21/players?page=1&league=19&nation=14")
 #> [1] "Reading... https://www.futbin.com/21/players?page=1&league=19&nation=14"
 #> [1] "Player(s) found: 7"
 #> [1] "Reading... https://www.futbin.com/21/players?page=2&league=19&nation=14"
 #> [1] "Player(s) found: 7"
 #>              name rating position  version price skills weak_foot pac sho pas
-#> 1    Jadon Sancho     87       RM     Rare 37000      5         3  83  74  81
+#> 1    Jadon Sancho     87       RM     Rare 38000      5         3  83  74  81
 #> 2  Ryan Sessegnon     75       LM non-rare   500      4         3  86  67  69
 #> 3 Ademola Lookman     74       RM     Rare  6000      3         4  82  72  66
 #> 4 Jude Bellingham     69       CM Non-Rare  1200      3         4  77  65  64
@@ -189,7 +185,7 @@ futbin_scrap(url = "https://www.futbin.com/21/players?page=1&league=19&nation=14
 #> 6    Clinton Mola     66       LB Non-Rare   650      2         3  68  40  63
 #> 7 Keanan Bennetts     63       LM     Rare  5700      2         4  75  59  58
 #>   dri def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
-#> 1  91  37  64 180       -459        430          2015         H          M  76
+#> 1  91  37  64 180       -458        430          2015         H          M  76
 #> 2  75  65  62 178         29        424          1978         H          M  71
 #> 3  80  27  60 174         10        387          1828         H          M  71
 #> 4  73  55  66 180         71        400          1837         H          M  72
@@ -201,8 +197,8 @@ futbin_scrap(url = "https://www.futbin.com/21/players?page=1&league=19&nation=14
 #### Radar plot comparing Van Dijk and Messi
 
 ``` r
-defenders <- futbin_search(name = c("Van Dijk", "Lionel Messi"), version = "Rare")
-futbin_plot(defenders)
+players <- futbin_search(name = c("Van Dijk", "Lionel Messi"), version = "Rare")
+futbin_plot(players)
 ```
 
 ![<https://i.imgur.com/MP9cmAk.png>](https://i.imgur.com/MP9cmAk.png)
@@ -222,4 +218,4 @@ futbin_plot(some_goalkeepers, gk = TRUE)
 
 If you use this package, you can cite it as:
 
-    Redondo-Sanchez, Daniel (2020). rfutbin: Price and stats of FIFA Ultimate Team players in Futbin
+    Redondo-Sanchez, Daniel (2020). rfutbin: R package to get price and stats of FIFA Ultimate Team players in Futbin

@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-rfutbin: Price and stats of FIFA Ultimate Team players in [Futbin](https://www.futbin.com).
+rfutbin: R package to get price and stats of FIFA Ultimate Team players in [Futbin](https://www.futbin.com).
 
 ## Installation
 
@@ -117,20 +117,20 @@ futbin_search(name = "Grealish", version = "IF", verbose = TRUE)
 Sys.sleep(3)
 ```
 
-#### Download all players from a team
+#### Download all players from a Futbin webpage
 
 ```{r}
-# Aston Villa players -> To get the URL, go to futbin.com/players and filter
+# All Aston Villa players -> To get the URL, go to futbin.com/players and filter
 aston_villa <- futbin_scrap(url = "https://www.futbin.com/players?page=1&club=2")
-# Let's see their names
-aston_villa$name
+
+head(aston_villa)
 ```
 ```{r, echo = FALSE, results='hide'}
 Sys.sleep(3)
 ```
 
 ```{r}
-# English players in Bundesliga -> To get the URL, go to futbin.com/players and filter
+# All English players in Bundesliga -> To get the URL, go to futbin.com/players and filter
 futbin_scrap(url = "https://www.futbin.com/21/players?page=1&league=19&nation=14")
 ```
 ```{r, echo = FALSE, results='hide'}
@@ -140,8 +140,8 @@ Sys.sleep(3)
 #### Radar plot comparing Van Dijk and Messi
 
 ```{r, eval = FALSE}
-defenders <- futbin_search(name = c("Van Dijk", "Lionel Messi"), version = "Rare")
-futbin_plot(defenders)
+players <- futbin_search(name = c("Van Dijk", "Lionel Messi"), version = "Rare")
+futbin_plot(players)
 ```
 ![https://i.imgur.com/MP9cmAk.png](https://i.imgur.com/MP9cmAk.png)
 (Please note that this is a static version. Real plots are interactive.)
@@ -163,5 +163,5 @@ If you use this package, you can cite it as:
 
 
 ```
-Redondo-Sanchez, Daniel (2020). rfutbin: Price and stats of FIFA Ultimate Team players in Futbin
+Redondo-Sanchez, Daniel (2020). rfutbin: R package to get price and stats of FIFA Ultimate Team players in Futbin
 ```
