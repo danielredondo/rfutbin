@@ -121,8 +121,8 @@ futbin_search(name = "Lewandowski", version = "Rare")
 ```
 
 ``` r
-# Luis Suárez One to watch (OTW)
-futbin_search(name = "Luis Suárez", version = "OTW")
+# Luis Suarez One to watch (OTW)
+futbin_search(name = "Luis Suarez", version = "OTW")
 #>          name rating position version  price skills weak_foot pac sho pas dri
 #> 2 Luis Suárez     88       ST     OTW 135000      3         4  72  91  84  84
 #>   def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei

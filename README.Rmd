@@ -102,8 +102,8 @@ Sys.sleep(3)
 ```
 
 ```{r}
-# Luis Suárez One to watch (OTW)
-futbin_search(name = "Luis Suárez", version = "OTW")
+# Luis Suarez One to watch (OTW)
+futbin_search(name = "Luis Suarez", version = "OTW")
 ```
 ```{r, echo = FALSE, results='hide'}
 Sys.sleep(3)

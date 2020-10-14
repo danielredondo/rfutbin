@@ -19,7 +19,7 @@
 #'
 #' # Search for a specific version of a player
 #' futbin_search(name = "Lewandowski", version = "Rare")
-#' futbin_search(name = "Luis Suárez", version = "OTW")
+#' futbin_search(name = "Luis Suarez", version = "OTW")
 #'
 #' # Search for an In-Form card of a player, showing verbose
 #' futbin_search(name = "Grealish", version = "IF", verbose = TRUE)
