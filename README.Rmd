@@ -16,7 +16,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-# rfutbin: R package to get price and stats of FIFA Ultimate Team players in [Futbin](https://www.futbin.com).
+# rfutbin
+
+R package to get price and stats of FIFA Ultimate Team players in [Futbin](https://www.futbin.com).
 
 ## Installation
 

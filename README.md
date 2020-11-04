@@ -1,6 +1,4 @@
-  - [rfutbin: R package to get price and stats of FIFA Ultimate Team
-    players in
-    [Futbin](https://www.futbin.com).](#rfutbin-r-package-to-get-price-and-stats-of-fifa-ultimate-team-players-in-futbin.)
+  - [rfutbin](#rfutbin)
       - [Installation](#installation)
       - [Functions](#functions)
       - [Examples](#examples)
@@ -8,7 +6,10 @@
 
 <img src='man/figures/logo.png' align="right" height="139" />
 
-# rfutbin: R package to get price and stats of FIFA Ultimate Team players in [Futbin](https://www.futbin.com).
+# rfutbin
+
+R package to get price and stats of FIFA Ultimate Team players in
+[Futbin](https://www.futbin.com).
 
 ## Installation
 
@@ -88,7 +89,7 @@ library(rfutbin)
 ``` r
 futbin_search(name = "Lionel Messi")
 #>           name rating position version  price skills weak_foot pac sho pas dri
-#> 1 Lionel Messi     93       RW    Rare 676000      4         4  85  92  91  95
+#> 1 Lionel Messi     93       RW    Rare 671000      4         4  85  92  91  95
 #> 2 Lionel Messi     93       RW      CL 669000      4         4  85  92  91  95
 #>   def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
 #> 1  38  65 170       1697        466          2273         M          L  72
@@ -100,7 +101,7 @@ futbin_search(name = "Lionel Messi")
 ``` r
 futbin_search(name = c("Lionel Messi", "Cristiano Ronaldo"))
 #>                name rating position version   price skills weak_foot pac sho
-#> 1      Lionel Messi     93       RW    Rare  676000      4         4  85  92
+#> 1      Lionel Messi     93       RW    Rare  671000      4         4  85  92
 #> 2      Lionel Messi     93       RW      CL  669000      4         4  85  92
 #> 3 Cristiano Ronaldo     92       ST    Rare 1590000      5         4  89  93
 #> 4 Cristiano Ronaldo     92       ST      CL 1580000      5         4  89  93
@@ -108,7 +109,7 @@ futbin_search(name = c("Lionel Messi", "Cristiano Ronaldo"))
 #> 1  91  95  38  65 170       1697        466          2273         M          L
 #> 2  91  95  38  65 170         93        466          2273         M          L
 #> 3  81  89  35  77 187       2873        464          2258         H          L
-#> 4  81  89  35  77 187        165        464          2258         H          L
+#> 4  81  89  35  77 187        166        464          2258         H          L
 #>   wei
 #> 1  72
 #> 2  72
@@ -142,7 +143,7 @@ futbin_search(name = "Grealish", version = "IF", verbose = TRUE)
 #> [1] "Reading... https://www.futbin.com/21/players?page=1&search=grealish"
 #> [1] "Player(s) found: 1"
 #>            name rating position version price skills weak_foot pac sho pas dri
-#> 1 Jack Grealish     83       LM      IF 12500      4         3  80  77  84  87
+#> 1 Jack Grealish     83       LM      IF 13750      4         3  80  77  84  87
 #>   def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
 #> 1  49  64 180        347        441          2066         M          M  68
 ```
@@ -161,10 +162,10 @@ aston_villa <- futbin_scrap(url = "https://www.futbin.com/players?page=1&club=2"
 
 head(aston_villa)
 #>                name rating position  version price skills weak_foot pac sho pas
-#> 1     Jack Grealish     83       LM       IF 12500      4         3  80  77  84
+#> 1     Jack Grealish     83       LM       IF 13750      4         3  80  77  84
 #> 2     Ollie Watkins     81       ST       IF 10750      3         4  88  79  73
 #> 3     Jack Grealish     80       LW     Rare  1100      4         3  76  74  80
-#> 4        Tom Heaton     78       GK Non-Rare   500      1         3  78  77  74
+#> 4        Tom Heaton     78       GK Non-Rare   550      1         3  78  77  74
 #> 5 Emiliano Martínez     78       GK Non-Rare   450      1         3  78  80  78
 #> 6      Ross Barkley     78       CM     Rare  1200      4         5  70  74  78
 #>   dri def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
@@ -184,7 +185,7 @@ futbin_scrap(url = "https://www.futbin.com/21/players?page=1&league=19&nation=14
 #> [1] "Reading... https://www.futbin.com/21/players?page=2&league=19&nation=14"
 #> [1] "Player(s) found: 8"
 #>              name rating position  version price skills weak_foot pac sho pas
-#> 1    Jadon Sancho     87       RM     Rare 16750      5         3  83  74  81
+#> 1    Jadon Sancho     87       RM     Rare 18000      5         3  83  74  81
 #> 2    Jadon Sancho     87       RM       CL 18000      5         3  83  74  81
 #> 3  Ryan Sessegnon     75       LM non-rare   650      4         3  86  67  69
 #> 4 Ademola Lookman     74       RM     Rare     0      3         4  82  72  66
