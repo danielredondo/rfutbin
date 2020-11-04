@@ -6,7 +6,8 @@ output:
     toc_depth: 2
 ---
  
-rfutbin
+rfutbin <img src='man/figures/logo.png' align="right" height="139" />
+
 =================
 
 ```{r, echo = FALSE}

@@ -1,10 +1,11 @@
-  - [rfutbin](#rfutbin)
-      - [Installation](#installation)
-      - [Functions](#functions)
-      - [Examples](#examples)
-      - [Citation](#citation)
+  - [Installation](#installation)
+  - [Functions](#functions)
+  - [Examples](#examples)
+  - [Citation](#citation)
 
-# rfutbin
+rfutbin <img src='man/figures/logo.png' align="right" height="139" />
+
+\=================
 
 rfutbin: R package to get price and stats of FIFA Ultimate Team players
 in [Futbin](https://www.futbin.com).
@@ -87,11 +88,11 @@ library(rfutbin)
 ``` r
 futbin_search(name = "Lionel Messi")
 #>           name rating position version  price skills weak_foot pac sho pas dri
-#> 1 Lionel Messi     93       RW    Rare 652000      4         4  85  92  91  95
-#> 2 Lionel Messi     93       RW      CL 666000      4         4  85  92  91  95
+#> 1 Lionel Messi     93       RW    Rare 676000      4         4  85  92  91  95
+#> 2 Lionel Messi     93       RW      CL 669000      4         4  85  92  91  95
 #>   def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
-#> 1  38  65 170       1272        466          2273         M          L  72
-#> 2  38  65 170         47        466          2273         M          L  72
+#> 1  38  65 170       1697        466          2273         M          L  72
+#> 2  38  65 170         93        466          2273         M          L  72
 ```
 
 #### Search for more than one player
@@ -99,15 +100,15 @@ futbin_search(name = "Lionel Messi")
 ``` r
 futbin_search(name = c("Lionel Messi", "Cristiano Ronaldo"))
 #>                name rating position version   price skills weak_foot pac sho
-#> 1      Lionel Messi     93       RW    Rare  652000      4         4  85  92
-#> 2      Lionel Messi     93       RW      CL  666000      4         4  85  92
-#> 3 Cristiano Ronaldo     92       ST    Rare 1530000      5         4  89  93
-#> 4 Cristiano Ronaldo     92       ST      CL 1560000      5         4  89  93
+#> 1      Lionel Messi     93       RW    Rare  676000      4         4  85  92
+#> 2      Lionel Messi     93       RW      CL  669000      4         4  85  92
+#> 3 Cristiano Ronaldo     92       ST    Rare 1590000      5         4  89  93
+#> 4 Cristiano Ronaldo     92       ST      CL 1580000      5         4  89  93
 #>   pas dri def phy hei popularity base_stats in_game_stats wr_attack wr_defense
-#> 1  91  95  38  65 170       1272        466          2273         M          L
-#> 2  91  95  38  65 170         47        466          2273         M          L
-#> 3  81  89  35  77 187       2168        464          2258         H          L
-#> 4  81  89  35  77 187         77        464          2258         H          L
+#> 1  91  95  38  65 170       1697        466          2273         M          L
+#> 2  91  95  38  65 170         93        466          2273         M          L
+#> 3  81  89  35  77 187       2873        464          2258         H          L
+#> 4  81  89  35  77 187        165        464          2258         H          L
 #>   wei
 #> 1  72
 #> 2  72
@@ -121,18 +122,18 @@ futbin_search(name = c("Lionel Messi", "Cristiano Ronaldo"))
 # Lewandowski rare card
 futbin_search(name = "Lewandowski", version = "Rare")
 #>                 name rating position version price skills weak_foot pac sho pas
-#> 2 Robert Lewandowski     91       ST    Rare 94000      4         4  78  91  78
+#> 2 Robert Lewandowski     91       ST    Rare 74500      4         4  78  91  78
 #>   dri def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
-#> 2  86  43  82 184       1036        458          2232         H          M  80
+#> 2  86  43  82 184       1239        458          2232         H          M  80
 ```
 
 ``` r
 # Luis Suarez One to watch (OTW)
 futbin_search(name = "Luis Suarez", version = "OTW")
 #>          name rating position version  price skills weak_foot pac sho pas dri
-#> 2 Luis Suárez     88       ST     OTW 114000      3         4  72  91  84  84
+#> 2 Luis Suárez     88       ST     OTW 117000      3         4  72  91  84  84
 #>   def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
-#> 2  52  84 182        403        467          2272         H          M  86
+#> 2  52  84 182        445        467          2272         H          M  86
 ```
 
 ``` r
@@ -141,9 +142,9 @@ futbin_search(name = "Grealish", version = "IF", verbose = TRUE)
 #> [1] "Reading... https://www.futbin.com/21/players?page=1&search=grealish"
 #> [1] "Player(s) found: 1"
 #>            name rating position version price skills weak_foot pac sho pas dri
-#> 1 Jack Grealish     83       LM      IF 13000      4         3  80  77  84  87
+#> 1 Jack Grealish     83       LM      IF 12500      4         3  80  77  84  87
 #>   def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
-#> 1  49  64 180        332        441          2066         M          M  68
+#> 1  49  64 180        347        441          2066         M          M  68
 ```
 
 #### Download all players from a Futbin webpage
@@ -160,19 +161,19 @@ aston_villa <- futbin_scrap(url = "https://www.futbin.com/players?page=1&club=2"
 
 head(aston_villa)
 #>                name rating position  version price skills weak_foot pac sho pas
-#> 1     Jack Grealish     83       LM       IF 13000      4         3  80  77  84
+#> 1     Jack Grealish     83       LM       IF 12500      4         3  80  77  84
 #> 2     Ollie Watkins     81       ST       IF 10750      3         4  88  79  73
-#> 3     Jack Grealish     80       LW     Rare   800      4         3  76  74  80
-#> 4        Tom Heaton     78       GK Non-Rare   750      1         3  78  77  74
-#> 5 Emiliano Martínez     78       GK Non-Rare   600      1         3  78  80  78
-#> 6      Ross Barkley     78       CM     Rare   850      4         5  70  74  78
+#> 3     Jack Grealish     80       LW     Rare  1100      4         3  76  74  80
+#> 4        Tom Heaton     78       GK Non-Rare   500      1         3  78  77  74
+#> 5 Emiliano Martínez     78       GK Non-Rare   450      1         3  78  80  78
+#> 6      Ross Barkley     78       CM     Rare  1200      4         5  70  74  78
 #>   dri def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
-#> 1  87  49  64 180        332        441          2066         M          M  68
-#> 2  78  51  73 180        609        442          2068         H          H  70
-#> 3  84  46  61 180        139        421          1989         M          M  68
-#> 4  79  56  78 187          3        442           980         M          M  92
-#> 5  77  58  77 195         55        448          1064         M          M    
-#> 6  80  57  73 186         46        432          2040         M          M  87
+#> 1  87  49  64 180        347        441          2066         M          M  68
+#> 2  78  51  73 180        630        442          2068         H          H  70
+#> 3  84  46  61 180        148        421          1989         M          M  68
+#> 4  79  56  78 187          4        442           980         M          M  92
+#> 5  77  58  77 195         59        448          1064         M          M    
+#> 6  80  57  73 186         48        432          2040         M          M  87
 ```
 
 ``` r
@@ -183,23 +184,23 @@ futbin_scrap(url = "https://www.futbin.com/21/players?page=1&league=19&nation=14
 #> [1] "Reading... https://www.futbin.com/21/players?page=2&league=19&nation=14"
 #> [1] "Player(s) found: 8"
 #>              name rating position  version price skills weak_foot pac sho pas
-#> 1    Jadon Sancho     87       RM     Rare 17750      5         3  83  74  81
-#> 2    Jadon Sancho     87       RM       CL 21500      5         3  83  74  81
-#> 3  Ryan Sessegnon     75       LM non-rare   750      4         3  86  67  69
-#> 4 Ademola Lookman     74       RM     Rare 13500      3         4  82  72  66
-#> 5 Jude Bellingham     69       CM Non-Rare  2900      3         4  77  65  64
-#> 6    Reece Oxford     66       CB Non-Rare   700      2         3  67  33  52
-#> 7    Clinton Mola     66       LB Non-Rare   700      2         3  68  40  63
-#> 8 Keanan Bennetts     63       LM     Rare  5500      2         4  75  59  58
+#> 1    Jadon Sancho     87       RM     Rare 16750      5         3  83  74  81
+#> 2    Jadon Sancho     87       RM       CL 18000      5         3  83  74  81
+#> 3  Ryan Sessegnon     75       LM non-rare   650      4         3  86  67  69
+#> 4 Ademola Lookman     74       RM     Rare     0      3         4  82  72  66
+#> 5 Jude Bellingham     69       CM Non-Rare  1400      3         4  77  65  64
+#> 6    Reece Oxford     66       CB Non-Rare  2900      2         3  67  33  52
+#> 7    Clinton Mola     66       LB Non-Rare   600      2         3  68  40  63
+#> 8 Keanan Bennetts     63       LM     Rare     0      2         4  75  59  58
 #>   dri def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
-#> 1  91  37  64 180       -399        430          2015         H          M  76
-#> 2  91  37  64 180         15        430          2015         H          M  76
-#> 3  75  65  62 178         32        424          1978         H          M  71
-#> 4  80  27  60 174         15        387          1828         H          M  71
-#> 5  73  55  66 180         99        400          1837         H          M  72
-#> 6  56  66  69 191          3        343          1591         M          M  78
-#> 7  64  62  63 183          1        360          1670         H          L  78
-#> 8  66  41  55 183          4        354          1641         H          M  73
+#> 1  91  37  64 180       -373        430          2015         H          M  76
+#> 2  91  37  64 180         17        430          2015         H          M  76
+#> 3  75  65  62 178         36        424          1978         H          M  71
+#> 4  80  27  60 174         20        387          1828         H          M  71
+#> 5  73  55  66 180        112        400          1837         H          M  72
+#> 6  56  66  69 191          5        343          1591         M          M  78
+#> 7  64  62  63 183          3        360          1670         H          L  78
+#> 8  66  41  55 183          6        354          1641         H          M  73
 ```
 
 #### Radar plot comparing Van Dijk and Messi
