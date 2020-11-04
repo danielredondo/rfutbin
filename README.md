@@ -1,14 +1,14 @@
-  - [Installation](#installation)
-  - [Functions](#functions)
-  - [Examples](#examples)
-  - [Citation](#citation)
+  - [rfutbin: R package to get price and stats of FIFA Ultimate Team
+    players in
+    [Futbin](https://www.futbin.com).](#rfutbin-r-package-to-get-price-and-stats-of-fifa-ultimate-team-players-in-futbin.)
+      - [Installation](#installation)
+      - [Functions](#functions)
+      - [Examples](#examples)
+      - [Citation](#citation)
 
-rfutbin <img src='man/figures/logo.png' align="right" height="139" />
+<img src='man/figures/logo.png' align="right" height="139" />
 
-\=================
-
-rfutbin: R package to get price and stats of FIFA Ultimate Team players
-in [Futbin](https://www.futbin.com).
+# rfutbin: R package to get price and stats of FIFA Ultimate Team players in [Futbin](https://www.futbin.com).
 
 ## Installation
 
@@ -122,7 +122,7 @@ futbin_search(name = c("Lionel Messi", "Cristiano Ronaldo"))
 # Lewandowski rare card
 futbin_search(name = "Lewandowski", version = "Rare")
 #>                 name rating position version price skills weak_foot pac sho pas
-#> 2 Robert Lewandowski     91       ST    Rare 74500      4         4  78  91  78
+#> 2 Robert Lewandowski     91       ST    Rare 75000      4         4  78  91  78
 #>   dri def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
 #> 2  86  43  82 184       1239        458          2232         H          M  80
 ```
