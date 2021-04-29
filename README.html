@@ -46,6 +46,15 @@ if (!!window.navigator.userAgent.match("MSIE 8")) {
 !function(a){"use strict";a.matchMedia=a.matchMedia||function(a){var b,c=a.documentElement,d=c.firstElementChild||c.firstChild,e=a.createElement("body"),f=a.createElement("div");return f.id="mq-test-1",f.style.cssText="position:absolute;top:-100em",e.style.background="none",e.appendChild(f),function(a){return f.innerHTML='&shy;<style media="'+a+'"> #mq-test-1 { width: 42px; }</style>',c.insertBefore(e,d),b=42===f.offsetWidth,c.removeChild(e),{matches:b,media:a}}}(a.document)}(this),function(a){"use strict";function b(){u(!0)}var c={};a.respond=c,c.update=function(){};var d=[],e=function(){var b=!1;try{b=new a.XMLHttpRequest}catch(c){b=new a.ActiveXObject("Microsoft.XMLHTTP")}return function(){return b}}(),f=function(a,b){var c=e();c&&(c.open("GET",a,!0),c.onreadystatechange=function(){4!==c.readyState||200!==c.status&&304!==c.status||b(c.responseText)},4!==c.readyState&&c.send(null))};if(c.ajax=f,c.queue=d,c.regex={media:/@media[^\{]+\{([^\{\}]*\{[^\}\{]*\})+/gi,keyframes:/@(?:\-(?:o|moz|webkit)\-)?keyframes[^\{]+\{(?:[^\{\}]*\{[^\}\{]*\})+[^\}]*\}/gi,urls:/(url\()['"]?([^\/\)'"][^:\)'"]+)['"]?(\))/g,findStyles:/@media *([^\{]+)\{([\S\s]+?)$/,only:/(only\s+)?([a-zA-Z]+)\s?/,minw:/\([\s]*min\-width\s*:[\s]*([\s]*[0-9\.]+)(px|em)[\s]*\)/,maxw:/\([\s]*max\-width\s*:[\s]*([\s]*[0-9\.]+)(px|em)[\s]*\)/},c.mediaQueriesSupported=a.matchMedia&&null!==a.matchMedia("only all")&&a.matchMedia("only all").matches,!c.mediaQueriesSupported){var g,h,i,j=a.document,k=j.documentElement,l=[],m=[],n=[],o={},p=30,q=j.getElementsByTagName("head")[0]||k,r=j.getElementsByTagName("base")[0],s=q.getElementsByTagName("link"),t=function(){var a,b=j.createElement("div"),c=j.body,d=k.style.fontSize,e=c&&c.style.fontSize,f=!1;return b.style.cssText="position:absolute;font-size:1em;width:1em",c||(c=f=j.createElement("body"),c.style.background="none"),k.style.fontSize="100%",c.style.fontSize="100%",c.appendChild(b),f&&k.insertBefore(c,k.firstChild),a=b.offsetWidth,f?k.removeChild(c):c.removeChild(b),k.style.fontSize=d,e&&(c.style.fontSize=e),a=i=parseFloat(a)},u=function(b){var c="clientWidth",d=k[c],e="CSS1Compat"===j.compatMode&&d||j.body[c]||d,f={},o=s[s.length-1],r=(new Date).getTime();if(b&&g&&p>r-g)return a.clearTimeout(h),h=a.setTimeout(u,p),void 0;g=r;for(var v in l)if(l.hasOwnProperty(v)){var w=l[v],x=w.minw,y=w.maxw,z=null===x,A=null===y,B="em";x&&(x=parseFloat(x)*(x.indexOf(B)>-1?i||t():1)),y&&(y=parseFloat(y)*(y.indexOf(B)>-1?i||t():1)),w.hasquery&&(z&&A||!(z||e>=x)||!(A||y>=e))||(f[w.media]||(f[w.media]=[]),f[w.media].push(m[w.rules]))}for(var C in n)n.hasOwnProperty(C)&&n[C]&&n[C].parentNode===q&&q.removeChild(n[C]);n.length=0;for(var D in f)if(f.hasOwnProperty(D)){var E=j.createElement("style"),F=f[D].join("\n");E.type="text/css",E.media=D,q.insertBefore(E,o.nextSibling),E.styleSheet?E.styleSheet.cssText=F:E.appendChild(j.createTextNode(F)),n.push(E)}},v=function(a,b,d){var e=a.replace(c.regex.keyframes,"").match(c.regex.media),f=e&&e.length||0;b=b.substring(0,b.lastIndexOf("/"));var g=function(a){return a.replace(c.regex.urls,"$1"+b+"$2$3")},h=!f&&d;b.length&&(b+="/"),h&&(f=1);for(var i=0;f>i;i++){var j,k,n,o;h?(j=d,m.push(g(a))):(j=e[i].match(c.regex.findStyles)&&RegExp.$1,m.push(RegExp.$2&&g(RegExp.$2))),n=j.split(","),o=n.length;for(var p=0;o>p;p++)k=n[p],l.push({media:k.split("(")[0].match(c.regex.only)&&RegExp.$2||"all",rules:m.length-1,hasquery:k.indexOf("(")>-1,minw:k.match(c.regex.minw)&&parseFloat(RegExp.$1)+(RegExp.$2||""),maxw:k.match(c.regex.maxw)&&parseFloat(RegExp.$1)+(RegExp.$2||"")})}u()},w=function(){if(d.length){var b=d.shift();f(b.href,function(c){v(c,b.href,b.media),o[b.href]=!0,a.setTimeout(function(){w()},0)})}},x=function(){for(var b=0;b<s.length;b++){var c=s[b],e=c.href,f=c.media,g=c.rel&&"stylesheet"===c.rel.toLowerCase();e&&g&&!o[e]&&(c.styleSheet&&c.styleSheet.rawCssText?(v(c.styleSheet.rawCssText,e,f),o[e]=!0):(!/^([a-zA-Z:]*\/\/)/.test(e)&&!r||e.replace(RegExp.$1,"").split("/")[0]===a.location.host)&&("//"===e.substring(0,2)&&(e=a.location.protocol+e),d.push({href:e,media:f})))}w()};x(),c.update=x,c.getEmValue=t,a.addEventListener?a.addEventListener("resize",b,!1):a.attachEvent&&a.attachEvent("onresize",b)}}(this);
 };
 </script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script>
 
 /**
@@ -218,11 +227,6 @@ color: #d14;
     </style>
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -235,32 +239,6 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
 
 
 
@@ -271,10 +249,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -291,6 +265,9 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
@@ -303,7 +280,6 @@ summary {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -367,7 +343,7 @@ summary {
 
 
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -437,67 +413,96 @@ library(rfutbin)</code></pre>
 <div id="search-for-a-player" class="section level4">
 <h4>Search for a player</h4>
 <pre class="r"><code>futbin_search(name = &quot;Lionel Messi&quot;)
-#&gt;           name rating position version   price skills weak_foot pac sho pas dri
-#&gt; 1 Lionel Messi     95       CF   TOTGS 1470000      4         4  88  95  94  97
-#&gt; 2 Lionel Messi     94       CF      IF  948000      4         4  86  94  93  96
-#&gt; 3 Lionel Messi     93       RW    Rare  414000      4         4  85  92  91  95
-#&gt; 4 Lionel Messi     93       RW      CL  414000      4         4  85  92  91  95
-#&gt;   def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
-#&gt; 1  40  68 170        861        482          2348         M          L  72
-#&gt; 2  39  66 170       3932        474          2315         M          L  72
-#&gt; 3  38  65 170       3308        466          2273         M          L  72
-#&gt; 4  38  65 170        347        466          2273         M          L  72</code></pre>
-</div>
-<div id="search-for-more-than-one-player" class="section level4">
-<h4>Search for more than one player</h4>
-<pre class="r"><code>futbin_search(name = c(&quot;Lionel Messi&quot;, &quot;Cristiano Ronaldo&quot;))
-#&gt;                name rating position version   price skills weak_foot pac sho
-#&gt; 1      Lionel Messi     95       CF   TOTGS 1470000      4         4  88  95
-#&gt; 2      Lionel Messi     94       CF      IF  948000      4         4  86  94
-#&gt; 3      Lionel Messi     93       RW    Rare  414000      4         4  85  92
-#&gt; 4      Lionel Messi     93       RW      CL  414000      4         4  85  92
-#&gt; 5 Cristiano Ronaldo     93       ST      IF 2650000      5         4  90  94
-#&gt; 6 Cristiano Ronaldo     92       ST    Rare 1290000      5         4  89  93
-#&gt; 7 Cristiano Ronaldo     92       ST      CL 1300000      5         4  89  93
+#&gt;           name rating position         version   price skills weak_foot pac sho
+#&gt; 1 Lionel Messi     98       RW            TOTY 2640000      4         4  93  98
+#&gt; 2 Lionel Messi     96       CF LaLiga POTM SBC 1710000      4         4  90  96
+#&gt; 3 Lionel Messi     95       CF           TOTGS  710000      4         4  88  95
+#&gt; 4 Lionel Messi     94       CF              IF  510000      4         4  86  94
+#&gt; 5 Lionel Messi     93       RW            Rare  115000      4         4  85  92
+#&gt; 6 Lionel Messi     93       RW              CL  115000      4         4  85  92
 #&gt;   pas dri def phy hei popularity base_stats in_game_stats wr_attack wr_defense
-#&gt; 1  94  97  40  68 170        861        482          2348         M          L
-#&gt; 2  93  96  39  66 170       3932        474          2315         M          L
-#&gt; 3  91  95  38  65 170       3308        466          2273         M          L
-#&gt; 4  91  95  38  65 170        347        466          2273         M          L
-#&gt; 5  83  91  36  78 187       4216        472          2301         H          L
-#&gt; 6  81  89  35  77 187       5985        464          2258         H          L
-#&gt; 7  81  89  35  77 187        685        464          2258         H          L
+#&gt; 1  97  99  43  73 170       5816        503          2449         M          L
+#&gt; 2  95  98  41  70 170       4410        490          2384         M          L
+#&gt; 3  94  97  40  68 170       2141        482          2348         M          L
+#&gt; 4  93  96  39  66 170       4962        474          2315         M          L
+#&gt; 5  91  95  38  65 170       7114        466          2273         M          L
+#&gt; 6  91  95  38  65 170        813        466          2273         M          L
 #&gt;   wei
 #&gt; 1  72
 #&gt; 2  72
 #&gt; 3  72
 #&gt; 4  72
-#&gt; 5  83
-#&gt; 6  83
-#&gt; 7  83</code></pre>
+#&gt; 5  72
+#&gt; 6  72</code></pre>
+</div>
+<div id="search-for-more-than-one-player" class="section level4">
+<h4>Search for more than one player</h4>
+<pre class="r"><code>futbin_search(name = c(&quot;Lionel Messi&quot;, &quot;Cristiano Ronaldo&quot;))
+#&gt;                 name rating position         version   price skills weak_foot
+#&gt; 1       Lionel Messi     98       RW            TOTY 2640000      4         4
+#&gt; 2       Lionel Messi     96       CF LaLiga POTM SBC 1710000      4         4
+#&gt; 3       Lionel Messi     95       CF           TOTGS  710000      4         4
+#&gt; 4       Lionel Messi     94       CF              IF  510000      4         4
+#&gt; 5       Lionel Messi     93       RW            Rare  115000      4         4
+#&gt; 6       Lionel Messi     93       RW              CL  115000      4         4
+#&gt; 7  Cristiano Ronaldo     98       ST            TOTY 6470000      5         4
+#&gt; 8  Cristiano Ronaldo     95       ST             TIF 3390000      5         4
+#&gt; 9  Cristiano Ronaldo     94       ST             SIF 2450000      5         4
+#&gt; 10 Cristiano Ronaldo     93       ST              IF 1400000      5         4
+#&gt; 11 Cristiano Ronaldo     92       ST            Rare  335000      5         4
+#&gt; 12 Cristiano Ronaldo     92       ST              CL  333000      5         4
+#&gt; 13 Cristiano Ronaldo     87       RW   Flashback SBC  334500      5         3
+#&gt;    pac sho pas dri def phy hei popularity base_stats in_game_stats wr_attack
+#&gt; 1   93  98  97  99  43  73 170       5816        503          2449         M
+#&gt; 2   90  96  95  98  41  70 170       4410        490          2384         M
+#&gt; 3   88  95  94  97  40  68 170       2141        482          2348         M
+#&gt; 4   86  94  93  96  39  66 170       4962        474          2315         M
+#&gt; 5   85  92  91  95  38  65 170       7114        466          2273         M
+#&gt; 6   85  92  91  95  38  65 170        813        466          2273         M
+#&gt; 7   96  98  89  96  44  88 187       7889        511          2465         H
+#&gt; 8   92  96  87  93  38  82 187       4326        488          2376         H
+#&gt; 9   91  95  85  92  37  80 187       4210        480          2339         H
+#&gt; 10  90  94  83  91  36  78 187       5640        472          2301         H
+#&gt; 11  89  93  81  89  35  77 187      14868        464          2258         H
+#&gt; 12  89  93  81  89  35  77 187       2034        464          2258         H
+#&gt; 13  91  79  75  86  30  72 187       2076        433          2091         H
+#&gt;    wr_defense wei
+#&gt; 1           L  72
+#&gt; 2           L  72
+#&gt; 3           L  72
+#&gt; 4           L  72
+#&gt; 5           L  72
+#&gt; 6           L  72
+#&gt; 7           L  83
+#&gt; 8           L  83
+#&gt; 9           L  83
+#&gt; 10          L  83
+#&gt; 11          L  83
+#&gt; 12          L  83
+#&gt; 13          L  83</code></pre>
 </div>
 <div id="search-for-a-specific-version-of-a-player" class="section level4">
 <h4>Search for a specific version of a player</h4>
 <pre class="r"><code># Lewandowski rare card
 futbin_search(name = &quot;Lewandowski&quot;, version = &quot;Rare&quot;)
 #&gt;                 name rating position version price skills weak_foot pac sho pas
-#&gt; 3 Robert Lewandowski     91       ST    Rare 70000      4         4  78  91  78
+#&gt; 6 Robert Lewandowski     91       ST    Rare 59000      4         4  78  91  78
 #&gt;   dri def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
-#&gt; 3  86  43  82 184       1672        458          2232         H          M  80</code></pre>
+#&gt; 6  86  43  82 184       2058        458          2232         H          M  80</code></pre>
 <pre class="r"><code># Luis Suarez One to watch (OTW)
 futbin_search(name = &quot;Luis Suarez&quot;, version = &quot;OTW&quot;)
 #&gt;          name rating position version price skills weak_foot pac sho pas dri
-#&gt; 2 Luis Suárez     88       ST     OTW 84000      3         4  72  91  84  84
+#&gt; 2 Luis Suárez     89       ST     OTW 50000      3         4  73  92  86  86
 #&gt;   def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
-#&gt; 2  52  84 182        560        467          2272         H          M  86</code></pre>
+#&gt; 2  53  85 182        842        475          2326         H          M  86</code></pre>
 <pre class="r"><code># Grealish In-Form (IF) showing verbose
 futbin_search(name = &quot;Grealish&quot;, version = &quot;IF&quot;, verbose = TRUE)
 #&gt; [1] &quot;Reading... https://www.futbin.com/21/players?page=1&amp;search=grealish&quot;
 #&gt; [1] &quot;Player(s) found: 1&quot;
 #&gt;            name rating position version price skills weak_foot pac sho pas dri
-#&gt; 1 Jack Grealish     83       LM      IF 25000      4         3  80  77  84  87
+#&gt; 2 Jack Grealish     83       LM      IF 30500      4         3  80  77  84  87
 #&gt;   def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
-#&gt; 1  49  64 180        443        441          2066         M          M  68</code></pre>
+#&gt; 2  49  64 180        523        441          2066         M          M  68</code></pre>
 </div>
 <div id="download-all-players-from-a-futbin-webpage" class="section level4">
 <h4>Download all players from a Futbin webpage</h4>
@@ -506,61 +511,80 @@ aston_villa &lt;- futbin_scrap(url = &quot;https://www.futbin.com/players?page=1
 #&gt; [1] &quot;Reading... https://www.futbin.com/players?page=1&amp;club=2&quot;
 #&gt; [1] &quot;Player(s) found: 30&quot;
 #&gt; [1] &quot;Reading... https://www.futbin.com/players?page=2&amp;club=2&quot;
-#&gt; [1] &quot;Player(s) found: 38&quot;
+#&gt; [1] &quot;Player(s) found: 41&quot;
 #&gt; [1] &quot;Reading... https://www.futbin.com/players?page=3&amp;club=2&quot;
-#&gt; [1] &quot;Player(s) found: 38&quot;
+#&gt; [1] &quot;Player(s) found: 41&quot;
 
 head(aston_villa)
-#&gt;                name rating position  version price skills weak_foot pac sho pas
-#&gt; 1     Ollie Watkins     84       ST       IF 65000      3         4  90  84  77
-#&gt; 2     Jack Grealish     83       LM       IF 25000      4         3  80  77  84
-#&gt; 3 Emiliano Martínez     82       GK       IF 10500      1         3  82  84  82
-#&gt; 4     Ollie Watkins     81       ST       IF 13750      3         4  88  79  73
-#&gt; 5     Jack Grealish     80       LW     Rare  1800      4         3  76  74  80
-#&gt; 6        Tom Heaton     78       GK Non-Rare   600      1         3  78  77  74
-#&gt;   dri def phy hei popularity base_stats in_game_stats wr_attack wr_defense wei
-#&gt; 1  82  54  76 180       3303        463          2188         H          H  70
-#&gt; 2  87  49  64 180        443        441          2066         M          M  68
-#&gt; 3  83  62  82 195        109        475          1072         M          M    
-#&gt; 4  78  51  73 180        773        442          2068         H          H  70
-#&gt; 5  84  46  61 180        166        421          1989         M          M  68
-#&gt; 6  79  56  78 187         11        442           980         M          M  92</code></pre>
+#&gt;                name rating position              version price skills weak_foot
+#&gt; 1     Jack Grealish     87      CAM TOTY Honourable Ment     0      4         3
+#&gt; 2     Ollie Watkins     84       ST                  SIF 31750      3         4
+#&gt; 3 Emiliano Martínez     84       GK                  SIF 44500      1         3
+#&gt; 4     Jack Grealish     83       LM                   IF 30500      4         3
+#&gt; 5 Emiliano Martínez     82       GK                   IF 35000      1         3
+#&gt; 6     Ollie Watkins     81       ST                   IF 19250      3         4
+#&gt;   pac sho pas dri def phy hei popularity base_stats in_game_stats wr_attack
+#&gt; 1  85  83  89  91  53  69 180       4630        470          2217         M
+#&gt; 2  90  84  77  82  54  76 180       3923        463          2188         H
+#&gt; 3  85  86  84  86  65  85 195        503        491          1078         M
+#&gt; 4  80  77  84  87  49  64 180        523        441          2066         M
+#&gt; 5  82  84  82  83  62  82 195        178        475          1072         M
+#&gt; 6  88  79  73  78  51  73 180        838        442          2068         H
+#&gt;   wr_defense wei
+#&gt; 1          M  68
+#&gt; 2          H  70
+#&gt; 3          M    
+#&gt; 4          M  68
+#&gt; 5          M    
+#&gt; 6          H  70</code></pre>
 <pre class="r"><code># All English players in Bundesliga -&gt; To get the URL, go to futbin.com/players and filter
 futbin_scrap(url = &quot;https://www.futbin.com/21/players?page=1&amp;league=19&amp;nation=14&quot;)
 #&gt; [1] &quot;Reading... https://www.futbin.com/21/players?page=1&amp;league=19&amp;nation=14&quot;
-#&gt; [1] &quot;Player(s) found: 9&quot;
+#&gt; [1] &quot;Player(s) found: 13&quot;
 #&gt; [1] &quot;Reading... https://www.futbin.com/21/players?page=2&amp;league=19&amp;nation=14&quot;
-#&gt; [1] &quot;Player(s) found: 9&quot;
-#&gt;              name rating position        version  price skills weak_foot pac
-#&gt; 1    Jadon Sancho     88       RM Record Breaker 243000      5         3  87
-#&gt; 2    Jadon Sancho     87       RM           Rare  30000      5         3  83
-#&gt; 3    Jadon Sancho     87       RM             CL  30000      5         3  83
-#&gt; 4  Ryan Sessegnon     75       LM       non-rare   1300      4         3  86
-#&gt; 5 Ademola Lookman     74       RM           Rare  25250      3         4  82
-#&gt; 6 Jude Bellingham     69       CM       Non-Rare   1600      3         4  77
-#&gt; 7    Reece Oxford     66       CB       Non-Rare    900      2         3  67
-#&gt; 8    Clinton Mola     66       LB       Non-Rare    700      2         3  68
-#&gt; 9 Keanan Bennetts     63       LM           Rare      0      2         4  75
-#&gt;   sho pas dri def phy hei popularity base_stats in_game_stats wr_attack
-#&gt; 1  83  82  91  38  65 180       1365        446          2092         H
-#&gt; 2  74  81  91  37  64 180       -328        430          2015         H
-#&gt; 3  74  81  91  37  64 180         33        430          2015         H
-#&gt; 4  67  69  75  65  62 178         38        424          1978         H
-#&gt; 5  72  66  80  27  60 174         45        387          1828         H
-#&gt; 6  65  64  73  55  66 180        161        400          1837         H
-#&gt; 7  33  52  56  66  69 191          6        343          1591         M
-#&gt; 8  40  63  64  62  63 183          5        360          1670         H
-#&gt; 9  59  58  66  41  55 183          7        354          1641         H
-#&gt;   wr_defense wei
-#&gt; 1          M  76
-#&gt; 2          M  76
-#&gt; 3          M  76
-#&gt; 4          M  71
-#&gt; 5          M  71
-#&gt; 6          M  72
-#&gt; 7          M  78
-#&gt; 8          L  78
-#&gt; 9          M  73</code></pre>
+#&gt; [1] &quot;Player(s) found: 13&quot;
+#&gt;               name rating position         version  price skills weak_foot pac
+#&gt; 1     Jadon Sancho     92       RM         What If 328000      5         3  91
+#&gt; 2     Jadon Sancho     89       LM Bundes POTM SBC 134500      5         3  87
+#&gt; 3     Jadon Sancho     88       RM  Record Breaker  92000      5         3  87
+#&gt; 4     Jadon Sancho     87       RM            Rare  25000      5         3  83
+#&gt; 5     Jadon Sancho     87       RM              CL  25500      5         3  83
+#&gt; 6   Ryan Sessegnon     87       LM      Objectives      0      4         4  92
+#&gt; 7   Ryan Sessegnon     75       LM        non-rare    800      4         3  86
+#&gt; 8     Demarai Gray     75       LM        non-rare    850      4         3  87
+#&gt; 9  Ademola Lookman     74       RM            Rare  29500      3         4  82
+#&gt; 10 Jude Bellingham     69       CM        Non-Rare   1200      3         4  77
+#&gt; 11    Reece Oxford     66       CB        Non-Rare    800      2         3  67
+#&gt; 12    Clinton Mola     66       LB        Non-Rare    850      2         3  68
+#&gt; 13 Keanan Bennetts     63       LM            Rare      0      2         4  75
+#&gt;    sho pas dri def phy hei popularity base_stats in_game_stats wr_attack
+#&gt; 1   87  86  95  42  74 180       1485        462          2215         H
+#&gt; 2   78  83  93  39  67 180      -2427        447          2089         H
+#&gt; 3   83  82  91  38  65 180       2229        446          2092         H
+#&gt; 4   74  81  91  37  64 180       -308        430          2015         H
+#&gt; 5   74  81  91  37  64 180         66        430          2015         H
+#&gt; 6   84  84  88  70  75 178        925        493          2325         H
+#&gt; 7   67  69  75  65  62 178         56        424          1978         H
+#&gt; 8   68  67  80  37  55 180         44        394          1803         M
+#&gt; 9   72  66  80  27  60 174         48        387          1828         H
+#&gt; 10  65  64  73  55  66 180        689        400          1837         H
+#&gt; 11  33  52  56  66  69 191         12        343          1591         M
+#&gt; 12  40  63  64  62  63 183          8        360          1670         H
+#&gt; 13  59  58  66  41  55 183         10        354          1641         H
+#&gt;    wr_defense wei
+#&gt; 1           M  76
+#&gt; 2           M  76
+#&gt; 3           M  76
+#&gt; 4           M  76
+#&gt; 5           M  76
+#&gt; 6           M  71
+#&gt; 7           M  71
+#&gt; 8           M  74
+#&gt; 9           M  71
+#&gt; 10          M  72
+#&gt; 11          M  78
+#&gt; 12          L  78
+#&gt; 13          M  73</code></pre>
 </div>
 <div id="radar-plot-comparing-van-dijk-and-messi" class="section level4">
 <h4>Radar plot comparing Van Dijk and Messi</h4>
@@ -609,7 +633,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
