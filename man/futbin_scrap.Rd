@@ -4,12 +4,14 @@
 \alias{futbin_scrap}
 \title{futbin_scrap extracts all players of a Futbin URL.}
 \usage{
-futbin_scrap(url, sleep_time = 5, verbose = TRUE)
+futbin_scrap(url, platform = "ps4", sleep_time = 5, verbose = TRUE)
 }
 \arguments{
 \item{url}{Futbin URL to web scrap.
 Futbin webpage (https://www.futbin.com/players) can be used to make customised filters, and then copy the URL here.
 All the players found in the URL (and the next pages) will be automatically detected and downloaded.}
+
+\item{platform}{Platform to get the prices from. Default is `ps4`. Other options are `xone` (XBox One) and `pc`.}
 
 \item{sleep_time}{Time (in seconds) ellapsed between scraping one page and the next one. Please respect Futbin API.}
 

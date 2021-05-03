@@ -4,6 +4,7 @@
 #' @importFrom dplyr %>%
 #' @param name Optional. Vector with the names of the players. If not specified
 #' it will report the 30 highest-rated players of the game.
+#' @param platform Platform to get the prices from. Default is `ps4`. Other options are `xone` (XBox One) and `pc`.
 #' @param version Optional. Version of the cards. Some options are "Rare",
 #' "Non-Rare", "IF" (In-Form), "SIF" (Second In-Form), ...
 #' @param verbose Optional. To show additional verbose about webpage used and number of players found.
@@ -13,6 +14,12 @@
 #' \dontrun{
 #' # Search for a player
 #' futbin_search(name = "Lionel Messi")
+#'
+#' # Search for a player and get the PC price
+#' futbin_search(name = "Lionel Messi", platform = "pc")
+#'
+#' # Search for a player and get the XBox One price
+#' futbin_search(name = "Lionel Messi", platform = "xone")
 #'
 #' # Search for more than one player
 #' futbin_search(name = c("Lionel Messi", "Cristiano Ronaldo"))
@@ -25,7 +32,7 @@
 #' futbin_search(name = "Grealish", version = "IF", verbose = TRUE)
 #' }
 
-futbin_search <- function(name = "", version = NULL, verbose = F) {
+futbin_search <- function(name = "", platform = "ps4", version = NULL,verbose = F) {
   if (length(name) == 1) {
 
     # Name transformation
@@ -41,7 +48,8 @@ futbin_search <- function(name = "", version = NULL, verbose = F) {
     url <- paste0("https://www.futbin.com/21/players?page=1&search=", name)
 
     # Web scraping
-    tabla <- xml2::read_html(url) %>%
+    tabla <- httr::GET(url, httr::set_cookies(platform = platform)) %>%
+      httr::content() %>%
       rvest::html_nodes(xpath = "//table") %>%
       magrittr::extract(1) %>%
       rvest::html_table() %>%
@@ -89,7 +97,7 @@ futbin_search <- function(name = "", version = NULL, verbose = F) {
     # Recursive search
     first.name <- name[1]
     other.names <- name[-1]
-    return(rbind(futbin_search(first.name, version, verbose), futbin_search(other.names, version, verbose)))
+    return(rbind(futbin_search(first.name, platform, version, verbose), futbin_search(other.names, platform, version, verbose)))
   }
 }
 

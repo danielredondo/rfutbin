@@ -5,6 +5,7 @@
 #' @param url Futbin URL to web scrap.
 #' Futbin webpage (https://www.futbin.com/players) can be used to make customised filters, and then copy the URL here.
 #' All the players found in the URL (and the next pages) will be automatically detected and downloaded.
+#' @param platform Platform to get the prices from. Default is `ps4`. Other options are `xone` (XBox One) and `pc`.
 #' @param sleep_time Time (in seconds) ellapsed between scraping one page and the next one. Please respect Futbin API.
 #' @param verbose Optional. To show additional verbose about webpage used and number of players found.
 #' @return A dataframe with all the players found at the URL.
@@ -17,7 +18,7 @@
 #' futbin_scrap(url = "https://www.futbin.com/players?page=1&nation=45&league=53&position=CB")
 #' }
 
-futbin_scrap <- function(url, sleep_time = 5, verbose = TRUE) {
+futbin_scrap <- function(url, platform = "ps4", sleep_time = 5, verbose = TRUE) {
 
   url_split <- strsplit(x = url, split = "page=1", fixed = TRUE) %>% unlist
 
@@ -35,14 +36,18 @@ futbin_scrap <- function(url, sleep_time = 5, verbose = TRUE) {
 
     # Web scraping
     if (i == 1) {
-      tabla <- xml2::read_html(url_to_scrap) %>%
+      tabla <- httr::GET(url_to_scrap,
+                         httr::set_cookies(platform = platform)) %>%
+        httr::content() %>%
         rvest::html_nodes(xpath = "//table") %>%
         magrittr::extract(1) %>%
         rvest::html_table() %>%
         magrittr::extract2(1)
     } else {
       Sys.sleep(sleep_time)
-      tabla.i <- xml2::read_html(url_to_scrap) %>%
+      tabla.i <- httr::GET(url_to_scrap,
+                           httr::set_cookies(platform = platform)) %>%
+        httr::content() %>%
         rvest::html_nodes(xpath = "//table") %>%
         magrittr::extract(1) %>%
         rvest::html_table() %>%

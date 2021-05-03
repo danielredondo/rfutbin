@@ -4,11 +4,13 @@
 \alias{futbin_search}
 \title{futbin_search searchs players in futbin.}
 \usage{
-futbin_search(name = "", version = NULL, verbose = F)
+futbin_search(name = "", platform = "ps4", version = NULL, verbose = F)
 }
 \arguments{
 \item{name}{Optional. Vector with the names of the players. If not specified
 it will report the 30 highest-rated players of the game.}
+
+\item{platform}{Platform to get the prices from. Default is `ps4`. Other options are `xone` (XBox One) and `pc`.}
 
 \item{version}{Optional. Version of the cards. Some options are "Rare",
 "Non-Rare", "IF" (In-Form), "SIF" (Second In-Form), ...}
@@ -26,6 +28,12 @@ futbin_search searchs players in futbin.
 \dontrun{
 # Search for a player
 futbin_search(name = "Lionel Messi")
+
+# Search for a player and get the PC price
+futbin_search(name = "Lionel Messi", platform = "pc")
+
+# Search for a player and get the XBox One price
+futbin_search(name = "Lionel Messi", platform = "xone")
 
 # Search for more than one player
 futbin_search(name = c("Lionel Messi", "Cristiano Ronaldo"))

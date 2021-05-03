@@ -16,9 +16,14 @@ knitr::opts_chunk$set(
 )
 ```
 
+```{r, echo = FALSE}
+# Remove scientific notation
+options(scipen = 999)
+```
+
 # rfutbin
 
-R package to get price and stats of FIFA Ultimate Team players in [Futbin](https://www.futbin.com).
+R package to get price and stats of FIFA Ultimate Team players in [Futbin](https://www.futbin.com) for all platforms (PS4/XBox One/PC).
 
 ## Installation
 
@@ -30,41 +35,6 @@ install_github("danielredondo/rfutbin")
 
 library(rfutbin)
 ```
-
-## Functions
-
-### futbin_search 
-
-`futbin_search` searchs players in Futbin. It has the following parameters:
-
-- `name`. Optional. Vector with the names of the players. If not specified, it will report the 30 highest-rated players of the game.
-
-- `version`. Optional. Version of the cards. Some options are "Rare", "Non-Rare", "IF" (In-Form), "SIF" (Second In-Form), ...
-
-- `verbose`. Optional. To show additional messages (webpage scraped and number of players found).
-
-The output of the function is a dataframe with all the players found searching for `name` and  `version`.
-
-### futbin_scrap 
-
-`futbin_scrap` extracts all players of a Futbin URL. It has the following parameters:
-
-- `url`. Futbin URL to web scrap. Futbin webpage (https://www.futbin.com/players) can be used to make customised filters, and then copy the URL here. All the players found in the URL (and the next pages) will be automatically detected and downloaded.
-
-- `sleep_time`. Time (in seconds) ellapsed between scraping one page and the next one. Please respect Futbin API.
-
-- `verbose`. Optional. To show additional verbose about webpage used and number of players found.
-
-The output of the function is a dataframe with all the players found at the URL.
-
-### futbin_plot 
-
-`futbin_plot` makes an interactive radar plot of the stats of the players. It has the following parameters:
-
-- `df` dataframe generated with columns `pac`, `sho`, `pas`, `dri`, `def`, `phy`. This dataframe can be obtained from function `futbin_search`.
-- `gk` Optional. If `TRUE`, the labels of the plot are the main stats for goalkeepers: diving, handling, kicking, reflexes, speed and position.
-
-The output of the function is an interactive radar plot of the stats.
 
 ## Examples
 
@@ -82,6 +52,19 @@ futbin_search(name = "Lionel Messi")
 ```{r, echo = FALSE, results='hide'}
 Sys.sleep(3)
 ```
+
+#### The default platform is PS4, but you can get the price in other platforms (XBox One/PC)
+
+```{r}
+futbin_search(name = "Lionel Messi", platform = "xone")
+futbin_search(name = "Lionel Messi", platform = "pc")
+```
+
+```{r, echo = FALSE, results='hide'}
+Sys.sleep(3)
+```
+
+The default platform is PS4.
 
 #### Search for more than one player
 
@@ -157,11 +140,52 @@ futbin_plot(some_goalkeepers, gk = TRUE)
 ![https://i.imgur.com/zpD21wa.png](https://i.imgur.com/zpD21wa.png)
 *(Please note that this is a static version. Real plots are interactive.)*
 
+## Functions
+
+### futbin_search 
+
+`futbin_search` searchs players in Futbin. It has the following parameters:
+
+- `name`. Optional. Vector with the names of the players. If not specified, it will report the 30 highest-rated players of the game.
+
+- `platform`. Platform to get the prices from. Default is `ps4`. Other options are `xone` (XBox One) and `pc`.
+
+- `version`. Optional. Version of the cards. Some options are "Rare", "Non-Rare", "IF" (In-Form), "SIF" (Second In-Form), ...
+
+- `verbose`. Optional. To show additional messages (webpage scraped and number of players found).
+
+The output of the function is a dataframe with all the players found searching for `name` and  `version`.
+
+### futbin_scrap 
+
+`futbin_scrap` extracts all players of a Futbin URL. It has the following parameters:
+
+- `url`. Futbin URL to web scrap. Futbin webpage (https://www.futbin.com/players) can be used to make customised filters, and then copy the URL here. All the players found in the URL (and the next pages) will be automatically detected and downloaded.
+
+- `platform`. Platform to get the prices from. Default is `ps4`. Other options are `xone` (XBox One) and `pc`.
+
+- `sleep_time`. Time (in seconds) ellapsed between scraping one page and the next one. Please respect Futbin API.
+
+- `verbose`. Optional. To show additional verbose about webpage used and number of players found.
+
+The output of the function is a dataframe with all the players found at the URL.
+
+### futbin_plot 
+
+`futbin_plot` makes an interactive radar plot of the stats of the players. It has the following parameters:
+
+- `df` dataframe generated with columns `pac`, `sho`, `pas`, `dri`, `def`, `phy`. This dataframe can be obtained from function `futbin_search`.
+
+- `gk` Optional. If `TRUE`, the labels of the plot are the main stats for goalkeepers: diving, handling, kicking, reflexes, speed and position.
+
+The output of the function is an interactive radar plot of the stats.
+
+
 ## Citation
 
 If you use this package, you can cite it as:
 
 
 ```
-Redondo-Sanchez, Daniel (2020). rfutbin: R package to get price and stats of FIFA Ultimate Team players in Futbin
+Redondo-Sanchez, Daniel (2021). rfutbin (v1.0.1): R package to get price and stats of FIFA Ultimate Team players in Futbin. https://github.com/danielredondo/rfutbin
 ```
