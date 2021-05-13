@@ -64,8 +64,6 @@ futbin_search(name = "Lionel Messi", platform = "pc")
 Sys.sleep(3)
 ```
 
-The default platform is PS4.
-
 #### Search for more than one player
 
 ```{r}
