@@ -38,14 +38,14 @@ futbin_search(name = "Lionel Messi")
 #> # A tibble: 7 x 20
 #>   name   rating position version  price skills weak_foot   pac   sho   pas   dri
 #>   <chr>   <int> <chr>    <chr>    <dbl>  <int>     <int> <int> <int> <int> <int>
-#> 1 Lione…     98 RW       TOTY    3.35e6      4         4    93    98    97    99
-#> 2 Lione…     98 ST       TOTS    3.9 e6      4         4    91    99    96    99
-#> 3 Lione…     96 CF       LaLiga… 1.71e6      4         4    90    96    95    98
-#> 4 Lione…     95 CF       TOTGS   8.86e5      4         4    88    95    94    97
-#> 5 Lione…     94 CF       IF      5.84e5      4         4    86    94    93    96
-#> 6 Lione…     93 RW       Rare    1.28e5      4         4    85    92    91    95
-#> 7 Lione…     93 RW       CL      1.27e5      4         4    85    92    91    95
-#> # … with 9 more variables: def <int>, phy <int>, hei <chr>, popularity <int>,
+#> 1 Lione~     98 RW       TOTY    2.68e6      4         4    93    98    97    99
+#> 2 Lione~     98 ST       TOTS    3   e6      4         4    91    99    96    99
+#> 3 Lione~     96 CF       LaLiga~ 1.71e6      4         4    90    96    95    98
+#> 4 Lione~     95 CF       TOTGS   6.58e5      4         4    88    95    94    97
+#> 5 Lione~     94 CF       IF      4.15e5      4         4    86    94    93    96
+#> 6 Lione~     93 RW       Rare    8.8 e4      4         4    85    92    91    95
+#> 7 Lione~     93 RW       CL      9   e4      4         4    85    92    91    95
+#> # ... with 9 more variables: def <int>, phy <int>, hei <chr>, popularity <int>,
 #> #   base_stats <int>, in_game_stats <int>, wr_attack <chr>, wr_defense <chr>,
 #> #   wei <chr>
 ```
@@ -57,28 +57,28 @@ futbin_search(name = "Lionel Messi", platform = "xone")
 #> # A tibble: 7 x 20
 #>   name   rating position version  price skills weak_foot   pac   sho   pas   dri
 #>   <chr>   <int> <chr>    <chr>    <dbl>  <int>     <int> <int> <int> <int> <int>
-#> 1 Lione…     98 RW       TOTY    3.1 e6      4         4    93    98    97    99
-#> 2 Lione…     98 ST       TOTS    3.69e6      4         4    91    99    96    99
-#> 3 Lione…     96 CF       LaLiga… 1.59e6      4         4    90    96    95    98
-#> 4 Lione…     95 CF       TOTGS   7.8 e5      4         4    88    95    94    97
-#> 5 Lione…     94 CF       IF      5.2 e5      4         4    86    94    93    96
-#> 6 Lione…     93 RW       Rare    1.3 e5      4         4    85    92    91    95
-#> 7 Lione…     93 RW       CL      1.28e5      4         4    85    92    91    95
-#> # … with 9 more variables: def <int>, phy <int>, hei <chr>, popularity <int>,
+#> 1 Lione~     98 RW       TOTY    2.8 e6      4         4    93    98    97    99
+#> 2 Lione~     98 ST       TOTS    3.02e6      4         4    91    99    96    99
+#> 3 Lione~     96 CF       LaLiga~ 1.59e6      4         4    90    96    95    98
+#> 4 Lione~     95 CF       TOTGS   6.14e5      4         4    88    95    94    97
+#> 5 Lione~     94 CF       IF      4.04e5      4         4    86    94    93    96
+#> 6 Lione~     93 RW       Rare    9   e4      4         4    85    92    91    95
+#> 7 Lione~     93 RW       CL      9.15e4      4         4    85    92    91    95
+#> # ... with 9 more variables: def <int>, phy <int>, hei <chr>, popularity <int>,
 #> #   base_stats <int>, in_game_stats <int>, wr_attack <chr>, wr_defense <chr>,
 #> #   wei <chr>
 futbin_search(name = "Lionel Messi", platform = "pc")
 #> # A tibble: 7 x 20
 #>   name   rating position version  price skills weak_foot   pac   sho   pas   dri
 #>   <chr>   <int> <chr>    <chr>    <dbl>  <int>     <int> <int> <int> <int> <int>
-#> 1 Lione…     98 RW       TOTY    4   e6      4         4    93    98    97    99
-#> 2 Lione…     98 ST       TOTS    4.76e6      4         4    91    99    96    99
-#> 3 Lione…     96 CF       LaLiga… 1.93e6      4         4    90    96    95    98
-#> 4 Lione…     95 CF       TOTGS   0           4         4    88    95    94    97
-#> 5 Lione…     94 CF       IF      1.08e6      4         4    86    94    93    96
-#> 6 Lione…     93 RW       Rare    1.88e5      4         4    85    92    91    95
-#> 7 Lione…     93 RW       CL      1.98e5      4         4    85    92    91    95
-#> # … with 9 more variables: def <int>, phy <int>, hei <chr>, popularity <int>,
+#> 1 Lione~     98 RW       TOTY    3.75e6      4         4    93    98    97    99
+#> 2 Lione~     98 ST       TOTS    3.8 e6      4         4    91    99    96    99
+#> 3 Lione~     96 CF       LaLiga~ 1.93e6      4         4    90    96    95    98
+#> 4 Lione~     95 CF       TOTGS   9.8 e5      4         4    88    95    94    97
+#> 5 Lione~     94 CF       IF      7.49e5      4         4    86    94    93    96
+#> 6 Lione~     93 RW       Rare    1.46e5      4         4    85    92    91    95
+#> 7 Lione~     93 RW       CL      1.45e5      4         4    85    92    91    95
+#> # ... with 9 more variables: def <int>, phy <int>, hei <chr>, popularity <int>,
 #> #   base_stats <int>, in_game_stats <int>, wr_attack <chr>, wr_defense <chr>,
 #> #   wei <chr>
 ```
@@ -87,24 +87,25 @@ futbin_search(name = "Lionel Messi", platform = "pc")
 
 ``` r
 futbin_search(name = c("Lionel Messi", "Cristiano Ronaldo"))
-#> # A tibble: 14 x 20
+#> # A tibble: 15 x 20
 #>    name  rating position version  price skills weak_foot   pac   sho   pas   dri
 #>    <chr>  <int> <chr>    <chr>    <dbl>  <int>     <int> <int> <int> <int> <int>
-#>  1 Lion…     98 RW       TOTY    3.35e6      4         4    93    98    97    99
-#>  2 Lion…     98 ST       TOTS    3.9 e6      4         4    91    99    96    99
-#>  3 Lion…     96 CF       LaLiga… 1.71e6      4         4    90    96    95    98
-#>  4 Lion…     95 CF       TOTGS   8.86e5      4         4    88    95    94    97
-#>  5 Lion…     94 CF       IF      5.84e5      4         4    86    94    93    96
-#>  6 Lion…     93 RW       Rare    1.28e5      4         4    85    92    91    95
-#>  7 Lion…     93 RW       CL      1.27e5      4         4    85    92    91    95
-#>  8 Cris…     98 ST       TOTY    7.59e6      5         4    96    98    89    96
-#>  9 Cris…     95 ST       TIF     3.67e6      5         4    92    96    87    93
-#> 10 Cris…     94 ST       SIF     2.57e6      5         4    91    95    85    92
-#> 11 Cris…     93 ST       IF      1.3 e6      5         4    90    94    83    91
-#> 12 Cris…     92 ST       Rare    1.73e5      5         4    89    93    81    89
-#> 13 Cris…     92 ST       CL      1.77e5      5         4    89    93    81    89
-#> 14 Cris…     87 RW       Flashb… 3.34e5      5         3    91    79    75    86
-#> # … with 9 more variables: def <int>, phy <int>, hei <chr>, popularity <int>,
+#>  1 Lion~     98 RW       TOTY    2.68e6      4         4    93    98    97    99
+#>  2 Lion~     98 ST       TOTS    3   e6      4         4    91    99    96    99
+#>  3 Lion~     96 CF       LaLiga~ 1.71e6      4         4    90    96    95    98
+#>  4 Lion~     95 CF       TOTGS   6.58e5      4         4    88    95    94    97
+#>  5 Lion~     94 CF       IF      4.15e5      4         4    86    94    93    96
+#>  6 Lion~     93 RW       Rare    8.8 e4      4         4    85    92    91    95
+#>  7 Lion~     93 RW       CL      9   e4      4         4    85    92    91    95
+#>  8 Cris~     98 ST       TOTY    6.83e6      5         4    96    98    89    96
+#>  9 Cris~     98 ST       TOTS    6.95e6      5         4    95    99    90    95
+#> 10 Cris~     95 ST       TIF     3.4 e6      5         4    92    96    87    93
+#> 11 Cris~     94 ST       SIF     2.3 e6      5         4    91    95    85    92
+#> 12 Cris~     93 ST       IF      1.2 e6      5         4    90    94    83    91
+#> 13 Cris~     92 ST       Rare    1.7 e5      5         4    89    93    81    89
+#> 14 Cris~     92 ST       CL      1.71e5      5         4    89    93    81    89
+#> 15 Cris~     87 RW       Flashb~ 3.34e5      5         3    91    79    75    86
+#> # ... with 9 more variables: def <int>, phy <int>, hei <chr>, popularity <int>,
 #> #   base_stats <int>, in_game_stats <int>, wr_attack <chr>, wr_defense <chr>,
 #> #   wei <chr>
 ```
@@ -117,8 +118,8 @@ futbin_search(name = "Lewandowski", version = "Rare")
 #> # A tibble: 1 x 20
 #>   name    rating position version price skills weak_foot   pac   sho   pas   dri
 #>   <chr>    <int> <chr>    <chr>   <dbl>  <int>     <int> <int> <int> <int> <int>
-#> 1 Robert…     91 ST       Rare    68500      4         4    78    91    78    86
-#> # … with 9 more variables: def <int>, phy <int>, hei <chr>, popularity <int>,
+#> 1 Robert~     91 ST       Rare    50000      4         4    78    91    78    86
+#> # ... with 9 more variables: def <int>, phy <int>, hei <chr>, popularity <int>,
 #> #   base_stats <int>, in_game_stats <int>, wr_attack <chr>, wr_defense <chr>,
 #> #   wei <chr>
 ```
@@ -129,8 +130,8 @@ futbin_search(name = "Luis Suarez", version = "OTW")
 #> # A tibble: 1 x 20
 #>   name    rating position version price skills weak_foot   pac   sho   pas   dri
 #>   <chr>    <int> <chr>    <chr>   <dbl>  <int>     <int> <int> <int> <int> <int>
-#> 1 Luis S…     89 ST       OTW     56500      3         4    73    92    86    86
-#> # … with 9 more variables: def <int>, phy <int>, hei <chr>, popularity <int>,
+#> 1 Luis S~     89 ST       OTW     49500      3         4    73    92    86    86
+#> # ... with 9 more variables: def <int>, phy <int>, hei <chr>, popularity <int>,
 #> #   base_stats <int>, in_game_stats <int>, wr_attack <chr>, wr_defense <chr>,
 #> #   wei <chr>
 ```
@@ -143,8 +144,8 @@ futbin_search(name = "Grealish", version = "IF", verbose = TRUE)
 #> # A tibble: 1 x 20
 #>   name    rating position version price skills weak_foot   pac   sho   pas   dri
 #>   <chr>    <int> <chr>    <chr>   <dbl>  <int>     <int> <int> <int> <int> <int>
-#> 1 Jack G…     83 LM       IF      29000      4         3    80    77    84    87
-#> # … with 9 more variables: def <int>, phy <int>, hei <chr>, popularity <int>,
+#> 1 Jack G~     83 LM       IF      28000      4         3    80    77    84    87
+#> # ... with 9 more variables: def <int>, phy <int>, hei <chr>, popularity <int>,
 #> #   base_stats <int>, in_game_stats <int>, wr_attack <chr>, wr_defense <chr>,
 #> #   wei <chr>
 ```
@@ -165,13 +166,13 @@ head(aston_villa)
 #> # A tibble: 6 x 20
 #>   name   rating position version  price skills weak_foot   pac   sho   pas   dri
 #>   <chr>   <int> <chr>    <chr>    <dbl>  <int>     <int> <int> <int> <int> <int>
-#> 1 Jack …     87 CAM      TOTY Ho…     0      4         3    85    83    89    91
-#> 2 Ollie…     84 ST       SIF      26000      3         4    90    84    77    82
-#> 3 Emili…     84 GK       SIF      26000      1         3    85    86    84    86
-#> 4 Jack …     83 LM       IF       29000      4         3    80    77    84    87
-#> 5 Emili…     82 GK       IF       30000      1         3    82    84    82    83
-#> 6 Ollie…     81 ST       IF       16000      3         4    88    79    73    78
-#> # … with 9 more variables: def <int>, phy <int>, hei <chr>, popularity <int>,
+#> 1 Jack ~     87 CAM      TOTY Ho~     0      4         3    85    83    89    91
+#> 2 Ollie~     84 ST       SIF      22250      3         4    90    84    77    82
+#> 3 Emili~     84 GK       SIF      35500      1         3    85    86    84    86
+#> 4 Jack ~     83 LM       IF       28000      4         3    80    77    84    87
+#> 5 Emili~     82 GK       IF       29500      1         3    82    84    82    83
+#> 6 Ollie~     81 ST       IF       16750      3         4    88    79    73    78
+#> # ... with 9 more variables: def <int>, phy <int>, hei <chr>, popularity <int>,
 #> #   base_stats <int>, in_game_stats <int>, wr_attack <chr>, wr_defense <chr>,
 #> #   wei <chr>
 ```
@@ -180,26 +181,29 @@ head(aston_villa)
 # All English players in Bundesliga -> To get the URL, go to futbin.com/players and filter
 futbin_scrap(url = "https://www.futbin.com/21/players?page=1&league=19&nation=14")
 #> [1] "Reading... https://www.futbin.com/21/players?page=1&league=19&nation=14"
-#> [1] "Player(s) found: 13"
+#> [1] "Player(s) found: 16"
 #> [1] "Reading... https://www.futbin.com/21/players?page=2&league=19&nation=14"
-#> [1] "Player(s) found: 13"
-#> # A tibble: 13 x 20
+#> [1] "Player(s) found: 16"
+#> # A tibble: 16 x 20
 #>    name  rating position version  price skills weak_foot   pac   sho   pas   dri
 #>    <chr>  <int> <chr>    <chr>    <dbl>  <int>     <int> <int> <int> <int> <int>
-#>  1 Jado…     92 RM       What If 279000      5         3    91    87    86    95
-#>  2 Jado…     89 LM       Bundes… 134500      5         3    87    78    83    93
-#>  3 Jado…     88 RM       Record…  84000      5         3    87    83    82    91
-#>  4 Jado…     87 RM       Rare     29000      5         3    83    74    81    91
-#>  5 Jado…     87 RM       CL       29500      5         3    83    74    81    91
-#>  6 Ryan…     87 LM       Object…      0      4         4    92    84    84    88
-#>  7 Ryan…     75 LM       non-ra…   1400      4         3    86    67    69    75
-#>  8 Dema…     75 LM       non-ra…   1300      4         3    87    68    67    80
-#>  9 Adem…     74 RM       Rare     29500      3         4    82    72    66    80
-#> 10 Jude…     69 CM       Non-Ra…   1100      3         4    77    65    64    73
-#> 11 Reec…     66 CB       Non-Ra…    750      2         3    67    33    52    56
-#> 12 Clin…     66 LB       Non-Ra…    900      2         3    68    40    63    64
-#> 13 Kean…     63 LM       Rare         0      2         4    75    59    58    66
-#> # … with 9 more variables: def <int>, phy <int>, hei <chr>, popularity <int>,
+#>  1 Jado~     96 RM       TOTS    2.84e6      5         4    96    94    93    98
+#>  2 Jado~     92 RM       What If 2.8 e5      5         3    91    87    86    95
+#>  3 Jude~     91 CM       TOTS M~ 2.20e5      4         4    88    87    89    89
+#>  4 Dema~     90 LW       ShowDo~ 2.00e5      4         4    96    89    86    96
+#>  5 Jado~     89 LM       Bundes~ 1.34e5      5         3    87    78    83    93
+#>  6 Jado~     88 RM       Record~ 7.3 e4      5         3    87    83    82    91
+#>  7 Jado~     87 RM       Rare    2.5 e4      5         3    83    74    81    91
+#>  8 Jado~     87 RM       CL      2.52e4      5         3    83    74    81    91
+#>  9 Ryan~     87 LM       Object~ 0           4         4    92    84    84    88
+#> 10 Ryan~     75 LM       non-ra~ 4.5 e2      4         3    86    67    69    75
+#> 11 Dema~     75 LM       non-ra~ 5   e2      4         3    87    68    67    80
+#> 12 Adem~     74 RM       Rare    0           3         4    82    72    66    80
+#> 13 Jude~     69 CM       Non-Ra~ 1.8 e3      3         4    77    65    64    73
+#> 14 Reec~     66 CB       Non-Ra~ 5   e2      2         3    67    33    52    56
+#> 15 Clin~     66 LB       Non-Ra~ 6   e2      2         3    68    40    63    64
+#> 16 Kean~     63 LM       Rare    0           2         4    75    59    58    66
+#> # ... with 9 more variables: def <int>, phy <int>, hei <chr>, popularity <int>,
 #> #   base_stats <int>, in_game_stats <int>, wr_attack <chr>, wr_defense <chr>,
 #> #   wei <chr>
 ```
