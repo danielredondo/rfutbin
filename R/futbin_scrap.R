@@ -35,23 +35,63 @@ futbin_scrap <- function(url, platform = "ps4", sleep_time = 5, verbose = TRUE) 
     if (verbose == T) print(paste0("Reading... ", url_to_scrap))
 
     # Web scraping
+    web <-  httr::GET(url_to_scrap,
+                      httr::set_cookies(platform = platform))
+    data_page <- web %>%
+      httr::content() %>%
+      rvest::html_nodes(xpath = "//table") %>%
+      magrittr::extract(1) %>%
+      rvest::html_table() %>%
+      magrittr::extract2(1)
+
     if (i == 1) {
-      tabla <- httr::GET(url_to_scrap,
-                         httr::set_cookies(platform = platform)) %>%
+      tabla <- data_page
+
+      # Add team, nation and league of each player
+      web %>%
         httr::content() %>%
         rvest::html_nodes(xpath = "//table") %>%
         magrittr::extract(1) %>%
-        rvest::html_table() %>%
-        magrittr::extract2(1)
+        rvest::html_elements(".players_club_nation") %>%
+        xml2::xml_contents() %>%
+        xml2::xml_attr("data-original-title") %>%
+        stats::na.omit() %>%
+        as.vector() -> table_team_nation_league
+
+      tabla$team <- NA
+      tabla$nation <- NA
+      tabla$league <- NA
+
+      for(j in 1:nrow(tabla)){
+        tabla$team[j]   <- table_team_nation_league[3 * j - 2]
+        tabla$nation[j] <- table_team_nation_league[3 * j - 1]
+        tabla$league[j] <- table_team_nation_league[3 * j]
+      }
     } else {
       Sys.sleep(sleep_time)
-      tabla.i <- httr::GET(url_to_scrap,
-                           httr::set_cookies(platform = platform)) %>%
+      tabla.i <- data_page
+
+      # Add team, nation and league of each player
+      web %>%
         httr::content() %>%
         rvest::html_nodes(xpath = "//table") %>%
         magrittr::extract(1) %>%
-        rvest::html_table() %>%
-        magrittr::extract2(1)
+        rvest::html_elements(".players_club_nation") %>%
+        xml2::xml_contents() %>%
+        xml2::xml_attr("data-original-title") %>%
+        stats::na.omit() %>%
+        as.vector() -> table_team_nation_league
+
+      tabla.i$team <- NA
+      tabla.i$nation <- NA
+      tabla.i$league <- NA
+
+      for(j in 1:nrow(tabla.i)){
+        tabla.i$team[j]   <- table_team_nation_league[3 * j - 2]
+        tabla.i$nation[j] <- table_team_nation_league[3 * j - 1]
+        tabla.i$league[j] <- table_team_nation_league[3 * j]
+      }
+
       if(tabla.i[1, 1] != "No Results") tabla <- rbind(tabla, tabla.i)
     }
 
@@ -64,7 +104,7 @@ futbin_scrap <- function(url, platform = "ps4", sleep_time = 5, verbose = TRUE) 
   colnames(tabla) <- c(
     "name", "rating", "position", "version", "price", "skills", "weak_foot", "work_rate",
     "pac", "sho", "pas", "dri", "def", "phy",
-    "hei", "popularity", "base_stats", "in_game_stats"
+    "hei", "popularity", "base_stats", "in_game_stats", "team", "nation", "league"
   )
 
   # Work rates (attack and defense)
@@ -88,6 +128,15 @@ futbin_scrap <- function(url, platform = "ps4", sleep_time = 5, verbose = TRUE) 
     if (aux_M[i] != -1) tabla$price[i] <- tabla$price[i] * 1000000
   }
 
+  # Reorder variables
+  tabla <- tabla %>%
+    dplyr::select("name", "rating", "position", "version", "price", "skills", "weak_foot",
+    "pac", "sho", "pas", "dri", "def", "phy",
+    "hei", "popularity", "base_stats", "in_game_stats", "wr_attack", "wr_defense",
+    "wei", "team", "nation", "league"
+  )
+
   return(tabla)
 }
+
 

@@ -48,7 +48,8 @@ futbin_search <- function(name = "", platform = "ps4", version = NULL,verbose = 
     url <- paste0("https://www.futbin.com/21/players?page=1&search=", name)
 
     # Web scraping
-    tabla <- httr::GET(url, httr::set_cookies(platform = platform)) %>%
+    web <- httr::GET(url, httr::set_cookies(platform = platform)) # To download only once
+    tabla <- web %>%
       httr::content() %>%
       rvest::html_nodes(xpath = "//table") %>%
       magrittr::extract(1) %>%
@@ -81,6 +82,27 @@ futbin_search <- function(name = "", platform = "ps4", version = NULL,verbose = 
     for (i in 1:nrow(tabla)) {
       if (aux_k[i] != -1) tabla$price[i] <- tabla$price[i] * 1000
       if (aux_M[i] != -1) tabla$price[i] <- tabla$price[i] * 1000000
+    }
+
+    # Add team, nation and league of each player
+    web %>%
+      httr::content() %>%
+      rvest::html_nodes(xpath = "//table") %>%
+      magrittr::extract(1) %>%
+      rvest::html_elements(".players_club_nation") %>%
+      xml2::xml_contents() %>%
+      xml2::xml_attr("data-original-title") %>%
+      stats::na.omit() %>%
+      as.vector() -> table_team_nation_league
+
+    tabla$team <- NA
+    tabla$nation <- NA
+    tabla$league <- NA
+
+    for(i in 1:nrow(tabla)){
+      tabla$team[i]   <- table_team_nation_league[3 * i - 2]
+      tabla$nation[i] <- table_team_nation_league[3 * i - 1]
+      tabla$league[i] <- table_team_nation_league[3 * i]
     }
 
     # Filter version of the player

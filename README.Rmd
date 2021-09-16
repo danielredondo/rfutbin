@@ -185,5 +185,5 @@ If you use this package, you can cite it as:
 
 
 ```
-Redondo-Sanchez, Daniel (2021). rfutbin (v1.0.1): R package to get price and stats of FIFA Ultimate Team players in Futbin. https://github.com/danielredondo/rfutbin
+Redondo-Sanchez, Daniel (2021). rfutbin (v1.0.2): R package to get price and stats of FIFA Ultimate Team players in Futbin. https://github.com/danielredondo/rfutbin
 ```

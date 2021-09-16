@@ -1,13 +1,13 @@
 Package: rfutbin
 Type: Package
 Title: Searchs FIFA Ultimate Team players to get stats and prices in Futbin
-Version: 1.0.1
+Version: 1.0.2
 Authors@R: person("Daniel", "Redondo-Sanchez", email = "danielredondosanchez@hotmail.com",
     role = c("aut", "cre"))
 Maintainer: Daniel Redondo Sánchez <danielredondosanchez@hotmail.com>
 Description: This package provides an R interface to Futbin,
     obtaining the live prices of FIFA Ultimate Team players, as well as
-    other interesting information (stats, versions and positions, popularity, ...).
+    other interesting information (stats, version, position, popularity, nation...).
     It also provides interactive radar plots to easily visualize the main stats
     of the players.
 License: MIT + file LICENSE
@@ -18,4 +18,4 @@ Imports: dplyr, rvest, httr, magrittr, xml2, radarchart
 Suggests:
 URL: https://github.com/danielredondo/rfutbin/
 BugReports: https://github.com/danielredondo/rfutbin/issues
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
